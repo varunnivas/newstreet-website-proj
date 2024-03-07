@@ -1,0 +1,15 @@
+## Example CODEOWNERS file for a React project
+
+# Specify the reviewers for the entire repository
+* @varunnivas @mahes9336 @esaineshhvarak
+
+# Specify reviewers for specific directories or files
+/src/ @varunnivas @mahes9336 @esaineshhvarak
+/public/ @varunnivas @mahes9336 @esaineshhvarak
+
+# Specify reviewers for specific file types
+*.js @varunnivas @mahes9336 @esaineshhvarak
+*.jsx @varunnivas @mahes9336 @esaineshhvarak
+*.css @varunnivas @mahes9336 @esaineshhvarak
+*.html @varunnivas @mahes9336 @esaineshhvarak
+*.scss @varunnivas @mahes9336 @esaineshhvarak
