@@ -6,6 +6,7 @@ import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE } from 'redux-persist
 import storageSession from 'redux-persist/lib/storage/session';
 import globalReducer from '../redux/slice';
 import  landingPageReducer  from '../pages/LandingPage/redux/slice';
+import userReducer from '../pages/LoginPage/redux/UserSlice'
 
 const persistConfig = {
     key: 'root',
@@ -16,7 +17,8 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
     global: globalReducer,
-    landingPage: landingPageReducer
+    landingPage: landingPageReducer,
+    user:userReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -1,0 +1,16 @@
+.LoginPageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .LoginForm {
+    width: 300px; /* Adjust width as needed */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Add more styles for responsiveness if needed */
+  
