@@ -4,8 +4,8 @@ import theme from '../../../theme';
 
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
-  
-    background: `linear-gradient(to right, ${theme.palette.error.main}, ${theme.palette.common.black})`,
+  background: `linear-gradient(to right, rgba(244, 67, 54, 0.8), rgba(0, 0, 0, 0.8))`, 
+  opacity: 0.8,
   }));
 
 
