@@ -1,13 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const hostName = "http://localhost:5173";
+const hostName = "https://nst-website-api.onrender.com/api/v1/login";
 
 export const loginUser = createAsyncThunk(
-    'user/login',
+    'username/login',
     async (userCredential, thunkAPI) => {
         try {
-            const response = await axios.post(`${hostName}/login`, userCredential);
+            const response = await axios.post(`${hostName}`, userCredential);
             localStorage.setItem('user', JSON.stringify(response.data)); // Assuming response contains user data
             return response.data;
         } catch (error) {

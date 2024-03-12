@@ -6,7 +6,7 @@ import { Button } from "@mui/material";
 
 export const LoginPage = () => {
   // states
-  const [name, setName] = useState('');
+  const [username, setusername] = useState('');
   const [password, setPassword] = useState('');
 
   // redux states
@@ -18,14 +18,14 @@ export const LoginPage = () => {
   const handleLoginEvent = (e) => {
     e.preventDefault();
     let userCredential = {
-      name,
+     username,
       password
     };
     dispatch(loginUser(userCredential)).then((result) => {
       if (result.payload) {
-        setName('');
+        setusername('');
         setPassword('');
-        navigate('/');
+        navigate('/Home');
       }
     });
   };
@@ -54,21 +54,21 @@ export const LoginPage = () => {
         <br/>
         <br/>
         <form onSubmit={handleLoginEvent}>
-          <label htmlFor="name">Name</label>
+          <label htmlFor="username">Name</label>
           <br />
           <input
             type="text"
-            name="name"
+            username="username"
             required
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={username}
+            onChange={(e) => setusername(e.target.value)}
           />
           <br />
           <label htmlFor="password">Password</label>
           <br />
           <input
             type="password"
-            name="password"
+            username="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />

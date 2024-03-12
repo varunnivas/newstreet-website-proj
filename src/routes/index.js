@@ -10,7 +10,7 @@ import Careers from'../pages/AdminPage/pages/Careers'
 
 const routes = [
     {
-        path: '/LoginPage', 
+        path: '/loginPage', 
         component: LoginPage,
         exact: true,
     },
@@ -25,32 +25,32 @@ const routes = [
         exact: true,
     },
     {
-        path: '/Sidenav', 
+        path: '/sidenav', 
         component:Sidenav,
         exact: true,
     },
     {
-        path:'/Home',
+        path:'/home',
         component:HomePage,
         exact:true,
     },
     {
-        path:'/News',
+        path:'/news',
         component:News,
         exact:true,
     },
     {
-        path:'/Products',
+        path:'/products',
         component:Products,
         exact:true,
     },
     {
-        path:'/Contact',
+        path:'/contact',
         component:Contact,
         exact:true,
     },
     {
-        path:'/Careers',
+        path:'/careers',
         component:Careers,
         exact:true,
     }

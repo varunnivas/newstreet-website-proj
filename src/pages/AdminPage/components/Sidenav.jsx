@@ -92,7 +92,7 @@ export default function Sidenav() {
         </Button>
         <Divider />
         <List>
-        <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/Home")}}>
+        <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/home")}}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -112,7 +112,7 @@ export default function Sidenav() {
                 <ListItemText primary="DashBoard" sx={{ opacity: open ? 1 : 0, color: 'black' }} /> {/* Changed text color to black */}
               </ListItemButton>
             </ListItem>
-            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/Products")}}>
+            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/products")}}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -132,7 +132,7 @@ export default function Sidenav() {
                 <ListItemText primary="Products" sx={{ opacity: open ? 1 : 0, color: 'black' }} /> {/* Changed text color to black */}
               </ListItemButton>
             </ListItem>
-            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/News")}}>
+            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/news")}}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -152,7 +152,7 @@ export default function Sidenav() {
                 <ListItemText primary="News" sx={{ opacity: open ? 1 : 0, color: 'black' }} /> {/* Changed text color to black */}
               </ListItemButton>
             </ListItem>
-            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/Careers")}}>
+            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/careers")}}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -172,7 +172,7 @@ export default function Sidenav() {
                 <ListItemText primary="Careers" sx={{ opacity: open ? 1 : 0, color: 'black' }} /> {/* Changed text color to black */}
               </ListItemButton>
             </ListItem>
-            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/Contact")}}>
+            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/contact")}}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
