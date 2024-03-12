@@ -3,7 +3,7 @@ import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "rgb(10, 10, 10)",
+      main: "rgb(255, 255, 255)",
     },
     secondary: {
       main: "#ff0000",
@@ -19,7 +19,7 @@ const theme = createTheme({
   },
   typography: {
     fontSize: 20,
-    fontFamily: "monospace",
+    fontFamily: "Poppins",
     p: {
       fontSize: "0.9rem",
       fontFamily: "cursive",

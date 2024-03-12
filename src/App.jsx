@@ -12,7 +12,6 @@ function App() {
     <>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <PageOne />
           <Router>
             <Routes>{generateRoutes(routes)}</Routes>
           </Router>
