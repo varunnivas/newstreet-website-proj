@@ -150,7 +150,8 @@ const News = () => {
                     <Button id = "next" onClick={nextClick}><RedoOutlinedIcon/></Button>
                 </div>
             </div>
-            <div className='thumbnail'>
+       
+                 <div className='thumbnail'>
               {items.map ((item,index) => (
                 <div
                   key={index}
@@ -162,8 +163,9 @@ const News = () => {
                   <div className='content'>{item.title}</div>
                 </div>
               ))}
-            </div>
-          </div>
+            </div></div>
+
+
         </Grid>
       </Grid>
       

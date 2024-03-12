@@ -128,7 +128,6 @@ header a{
     padding: 0 50px;
     box-sizing: border-box;
     overflow: auto;
-    justify-content: center;
 }
 
 .thumbnail::-webkit-scrollbar{
