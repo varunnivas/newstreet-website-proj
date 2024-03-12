@@ -5,14 +5,13 @@ import { PersistGate } from "redux-persist/integration/react";
 import { BrowserRouter as Router, Routes } from "react-router-dom";
 import generateRoutes from "./utils/generateRoutes";
 import routes from "./routes/index";
-import PageOne from "./component/PageOne";
 
 function App() {
   return (
     <>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <PageOne />
+          {/* <PageOne /> */}
           <Router>
             <Routes>{generateRoutes(routes)}</Routes>
           </Router>

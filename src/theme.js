@@ -1,9 +1,11 @@
 import { createTheme } from "@mui/material/styles";
+import "./index.css"
+
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: "rgb(10, 10, 10)",
+      main: "rgb(0, 0, 0)",
     },
     secondary: {
       main: "#ff0000",
@@ -14,12 +16,12 @@ const theme = createTheme({
       default: "rgb(10, 10, 10)",
     },
     text: {
-      primary: "#fff",
+      primary: "#C02942",
     },
   },
   typography: {
     fontSize: 20,
-    fontFamily: "monospace",
+    fontFamily: "Poppins",
     p: {
       fontSize: "0.9rem",
       fontFamily: "cursive",

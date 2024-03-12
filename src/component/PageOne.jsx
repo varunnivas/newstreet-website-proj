@@ -4,8 +4,8 @@ export default function PageOne() {
   return (
     <>
       <Button variant="contained" color="secondary">
-        hgvjhgjy
       </Button>
+      
     </>
   );
 }
