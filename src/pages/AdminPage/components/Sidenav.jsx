@@ -87,7 +87,7 @@ export default function Sidenav() {
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton> */}
         </DrawerHeader>
-        <Button variant="contained" color="secondary">
+        <Button variant="contained" color="secondary" onClick={()=>{navigate("/home")}}>
           New Street
         </Button>
         <Divider />
