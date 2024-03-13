@@ -5,7 +5,7 @@ import "./index.css"
 const theme = createTheme({
   palette: {
     primary: {
-      main: "rgb(0, 0, 0)",
+      main: "#000000",
     },
     secondary: {
       main: "#ff0000",
@@ -13,10 +13,10 @@ const theme = createTheme({
       contrastText: "#fff",
     },
     background: {
-      default: "rgb(10, 10, 10)",
+      default: "#101010",
     },
     text: {
-      primary: "#C02942",
+      primary: "#ffffff",
     },
   },
   typography: {
@@ -30,8 +30,8 @@ const theme = createTheme({
       color: "#808",
     },
     h1: {
-      fontSize: "2rem",
-      fontWeight: "900",
+      fontSize: "2.8rem",
+      fontWeight: "800",
       color: "#fff",
     },
     h2: {
@@ -84,9 +84,15 @@ const theme = createTheme({
     },
     MuiButton: {
       styleOverrides: {
+        root: { // This applies to all buttons
+          '&:hover': {
+            backgroundColor: 'red', // Change color to red when button is clicked
+          },
+        },
         containedSecondary: {
           fontFamily: "cursive",
           borderRadius: "1px",
+
         },
       },
     },
