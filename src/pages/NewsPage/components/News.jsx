@@ -10,6 +10,81 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import LanguageIcon from '@mui/icons-material/Language';
 import { Button, Grid, Typography, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
 
+const items = [
+  {
+    image: img1,
+    title: 'Slider 01',
+    date : '02-04-2023',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.',
+  },
+  {
+    image: img2,
+    title: 'Slider 02',
+    date : '02-04-2023',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.',
+  },
+  {
+    image: img3,
+    title: 'Slider 03',
+    date : '02-04-2023',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.',
+  },
+  {
+    image: img4,
+    title: 'Slider 04',
+    date : '02-04-2023',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.',
+  },
+  {
+    image: img2,
+    title: 'Slider 05',
+    date : '02-04-2023',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.',
+  },
+  {
+    image: img1,
+    title: 'Slider 01',
+    date : '02-04-2023',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.',
+  },
+  {
+    image: img1,
+    title: 'Slider 01',
+    date : '02-04-2023',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.',
+  },
+  {
+    image: img1,
+    title: 'Slider 01',
+    date : '02-04-2023',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.',
+  },
+  {
+    image: img4,
+    title: 'Slider 04',
+    date : '02-04-2023',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.',
+  },
+  {
+    image: img4,
+    title: 'Slider 04',
+    date : '02-04-2023',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.',
+  },
+];
+
+
+
 const News = () => {
   const [itemActive, setItemActive] = useState(0);
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -54,15 +129,6 @@ const News = () => {
     }
   }, [itemActive]);
 
-  const fetchItems = async () => {
-    try {
-      const response = await fetch('YOUR_API_ENDPOINT');
-      const data = await response.json();
-      setItems(data); // Assuming the API returns an array of items similar to the current structure
-    } catch (error) {
-      console.error('Error fetching items:', error);
-    }
-  };  
 
   const items = [
     {
@@ -138,8 +204,8 @@ const News = () => {
                   onClick={() => thumbnailClick(index)}
                 >
                   <img src={item.image} alt={`Slider ${index + 1}`} />
-                  <div className='content'>
-                    <Typography variant='h3'>{item.date}</Typography>
+                  <div className='content' style = {{fontFamily : "Arial"}}>
+                    <Typography variant='h3' >{item.date}</Typography>
                     <Typography variant='h4'>{item.title}</Typography>
                   </div>
                 </div>
@@ -150,19 +216,19 @@ const News = () => {
       </Grid>
 
       <Dialog open={dialogOpen} onClose={handleClose} >
-        <DialogTitle><Typography variant='h2'>{dialogData ? dialogData.title : ''}</Typography></DialogTitle>
+        <DialogTitle><Typography variant='h2' style = {{fontFamily : "Arial-Bold", fontSize : "1.5rem"}}>{dialogData ? dialogData.title : ''}</Typography></DialogTitle>
         <DialogContent dividers>
           <img src={dialogData ? dialogData.image : ''} alt={dialogData ? dialogData.title : ''} style={{ width: '100%', margin: 'auto' }} />
-          <Typography variant="p" gutterBottom>
+          <Typography variant="p" gutterBottom style = {{fontFamily : "Arial", fontSize : "1.5rem"}}>
             {dialogData ? dialogData.description : ''}
           </Typography>
-          <Typography variant="h6" color="textSecondary" style={{ textAlign: 'right' }}>
+          <Typography variant="h6" color="textSecondary" style = {{fontFamily : "Arial", fontSize : "1.0rem", textAlign : "right"}}>
             {dialogData ? dialogData.date : ''}
           </Typography>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
-            Close
+          ❌
           </Button>
         </DialogActions>
       </Dialog>
