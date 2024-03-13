@@ -22,30 +22,30 @@ const theme = createTheme({
     fontFamily: "Poppins",
     p: {
       fontSize: "0.9rem",
-      fontFamily: "cursive",
+      fontFamily: "Poppins",
       lineHeight: 1.5,
       margin: "0 0 1rem",
-      color: "#808",
+      color: "Black",
     },
     h1: {
       fontSize: "2rem",
       fontWeight: "900",
-      color: "#fff",
+      color: "#red",
     },
     h2: {
       fontSize: "1.3rem",
       fontWeight: "600",
-      color: "#666666",
+      color: "red",
     },
     h3: {
       fontSize: "1rem",
       fontWeight: "600",
-      color: "#666666",
+      color: "white",
     },
     h4: {
       fontSize: "0.8rem",
       fontWeight: "600",
-      color: "#666666",
+      color: "white",
     },
     h5: {
       fontSize: "0.7rem",
@@ -72,7 +72,7 @@ const theme = createTheme({
           borderRadius: "15px",
           border: "1px solid #914934",
           padding: "10px",
-          backgroundColor: "#fff",
+          backgroundColor: "",
           "&:focus": {
             borderColor: "#265073",
             boxShadow: "0px 0px 5px rgba(0, 0, 0, 0.1)",
