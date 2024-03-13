@@ -12,10 +12,10 @@ const NumberRow = () => {
   ]; // Replace with the path to your image
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between',borderRadius: '40px', marginLeft:'10px'  }}>
+    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between',borderRadius: '40px', marginLeft:'10px', marginRight:'20px' }}>
       {data.map((item, index) => (
-        <Box key={index} sx={{ mr: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom:'20px'}}>
-          <Typography variant="h2" sx={{ ml: 1, mr: 1, fontSize: '3rem', textDecoration: 'null', textDecorationColor: 'white' }}>{item}</Typography>
+        <Box key={index} sx={{ mr: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom:'20px', marginRight:'20px'}}>
+          <Typography variant="h2" sx={{ ml: 0, mr: 0, fontSize: '3rem', textDecoration: 'null', textDecorationColor: 'white' }}>{item}</Typography>
 
           <Typography
             variant="h1"

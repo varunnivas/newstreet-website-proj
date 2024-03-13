@@ -28,7 +28,8 @@ const ImageFromAPI = () => {
         overflow: 'hidden',
         animation: 'marquee 30s linear infinite',
         zIndex: 1,
-        backgroundColor: '#440B0B', // Add white background
+        // backgroundColor: '#440B0B', 
+        background: 'linear-gradient(to left, hsl(0, 10%, 0%), hsl(0, 60%, 20%))',
         padding: '10px', // Add optional padding for spacing
         borderRadius: '5px',
         position:'relative',
