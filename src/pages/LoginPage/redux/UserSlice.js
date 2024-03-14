@@ -21,12 +21,26 @@ export const loginUser = createAsyncThunk(
     }
 );
 
+export const logoutUser = () => (dispatch) => {
+    // Clear user data from local storage
+    localStorage.removeItem('user');
+    // Dispatch an action to reset user state
+    dispatch(logout());
+};
+
 const userSlice = createSlice({
     name: 'user',
     initialState: {
         loading: false,
         user: null,
         error: null
+    },
+    reducers: {
+        logout: (state) => {
+            state.loading = false;
+            state.user = null;
+            state.error = null;
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -44,8 +58,10 @@ const userSlice = createSlice({
                 state.loading = false;
                 state.user = null;
                 state.error = action.error.message;
-            })
+            });
     }
 });
+
+export const { logout } = userSlice.actions;
 
 export default userSlice.reducer;

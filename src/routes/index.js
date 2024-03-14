@@ -6,11 +6,11 @@ import HomePage from '../pages/AdminPage/pages/Home';
 import News from '../pages/AdminPage/pages/News/components/News'
 import Products from '../pages/AdminPage/pages/Products/components/Products'
 import Contact from '../pages/AdminPage/pages/Contact'
-import Careers from'../pages/AdminPage/pages/Careers'
+import Partners from '../pages/AdminPage/pages/Partners/components/Partners';
 
 const routes = [
     {
-        path: '/loginPage', 
+        path: '/login', 
         component: LoginPage,
         exact: true,
     },
@@ -50,10 +50,11 @@ const routes = [
         exact:true,
     },
     {
-        path:'/careers',
-        component:Careers,
+        path:'/partner',
+        component:Partners,
         exact:true,
-    }
+    },
+
 ];
 
 export default routes;

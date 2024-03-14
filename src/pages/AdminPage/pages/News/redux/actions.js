@@ -17,6 +17,23 @@ export const sendFormData = (formData, token) => {
   };
 };
 
+export const updateNews = (newsId, formData, token) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.put(`https://nst-website-api.onrender.com/api/v1/news/${newsId}`, formData, {
+        headers: {
+          'Authorization': `Bearer ${token}`, 
+          'Content-Type': 'multipart/form-data' 
+        }
+      });
+
+      dispatch(formDataSent(response.data));
+    } catch (error) {
+      dispatch(formDataFailed(error.message));
+    }
+  };
+};
+
 const formDataSent = (data) => ({
   type: 'FORM_DATA_SENT',
   payload: data

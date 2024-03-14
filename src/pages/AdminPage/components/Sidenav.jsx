@@ -12,7 +12,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import { useNavigate } from 'react-router-dom';
 import { Button } from "@mui/material";
 import HomeIcon from '@mui/icons-material/Home';
@@ -20,6 +19,8 @@ import InventoryIcon from '@mui/icons-material/Inventory';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import ListIcon from '@mui/icons-material/List';
 import ContactPageIcon from '@mui/icons-material/ContactPage';
+import { logoutUser } from '/Users/kushank/Desktop/Admin/newstreet-website-proj/src/pages/LoginPage/redux/UserSlice';
+import { useDispatch } from 'react-redux';
 
 const drawerWidth = 240;
 
@@ -30,7 +31,7 @@ const openedMixin = (theme) => ({
     duration: theme.transitions.duration.enteringScreen,
   }),
   overflowX: 'hidden',
-  backgroundColor: 'red', // Set background color to red
+  backgroundColor: 'white', // Set background color to red
 });
 
 const closedMixin = (theme) => ({
@@ -40,7 +41,7 @@ const closedMixin = (theme) => ({
     }),
     overflowX: 'hidden',
     width: `calc(${theme.spacing(7)} + 1px)`,
-    backgroundColor: 'red', // Maintain background color when sidebar is closed
+    backgroundColor: 'white', 
     [theme.breakpoints.up('sm')]: {
       width: `calc(${theme.spacing(8)} + 1px)`,
     },
@@ -77,6 +78,11 @@ export default function Sidenav() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
   const navigate=useNavigate();
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    navigate('/login')
+  };
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -152,7 +158,7 @@ export default function Sidenav() {
                 <ListItemText primary="News" sx={{ opacity: open ? 1 : 0, color: 'black' }} /> {/* Changed text color to black */}
               </ListItemButton>
             </ListItem>
-            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/careers")}}>
+            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/partner")}}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -169,7 +175,7 @@ export default function Sidenav() {
                 >
                 <ListIcon /> 
                 </ListItemIcon>
-                <ListItemText primary="Careers" sx={{ opacity: open ? 1 : 0, color: 'black' }} /> {/* Changed text color to black */}
+                <ListItemText primary="Partners" sx={{ opacity: open ? 1 : 0, color: 'black' }} /> {/* Changed text color to black */}
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/contact")}}>
@@ -189,12 +195,14 @@ export default function Sidenav() {
                 >
                 <ContactPageIcon/>
                 </ListItemIcon>
-                <ListItemText primary="Contact Us" sx={{ opacity: open ? 1 : 0, color: 'black' }} /> {/* Changed text color to black */}
+                <ListItemText primary="Queries" sx={{ opacity: open ? 1 : 0, color: 'black' }} /> {/* Changed text color to black */}
               </ListItemButton>
             </ListItem>
         </List>
         <Divider />
-      </Drawer>
+        <br/>
+        <br/>
+        <Button onClick={handleLogout}>Log Out</Button>      </Drawer>
     </Box>
   );
 }
