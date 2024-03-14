@@ -88,6 +88,7 @@ const newsContainer = () => {
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.',
     },
   ];
+  
   return (
     <>
         <header>
@@ -132,7 +133,14 @@ const newsContainer = () => {
         </Grid>
 
       <Dialog open={dialogOpen} onClose={handleClose} >
-        <DialogTitle><Typography variant='h2' style = {{fontFamily : "Arial", fontSize : "1.5rem"}}>{dialogData ? dialogData.title : ''}</Typography></DialogTitle>
+      <DialogTitle sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <Typography variant='h2' sx={{ fontFamily: "Arial", fontSize: "1.5rem" }}>
+          {dialogData ? dialogData.title : ''}
+        </Typography>
+        <Button onClick={handleClose} color="primary">
+          ❌
+        </Button>
+      </DialogTitle>;
         <DialogContent dividers>
           <img src={dialogData ? dialogData.image : ''} alt={dialogData ? dialogData.title : ''} style={{ width: '100%', margin: 'auto' }} />
           <Typography variant="p" gutterBottom style = {{fontFamily : "Arial", fontSize : "1.5rem"}}>
@@ -142,11 +150,7 @@ const newsContainer = () => {
             {dialogData ? dialogData.date : ''}
           </Typography>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-          ❌
-          </Button>
-        </DialogActions>
+        
       </Dialog>
         <Footer/>        
     </>
