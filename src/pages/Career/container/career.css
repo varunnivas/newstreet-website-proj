@@ -1,79 +1,76 @@
 .container {
-    padding: 100px;
+  padding: 100px;
 }
 
 .bubble {
-    width: auto;
-    height: auto;
-    background-color: rgb(142, 0, 0);
-    position: relative;
-    clip-path: polygon(0% 40px, 100% 0%, 100% 100%, 0% 100%);
-    padding: 50px;
-    color: #ffffff;
-    border-radius: 10px;
-  }
+  width: auto;
+  height: auto;
+  /* background: linear-gradient(to left, #000000, rgb(122,31,31)); */
+  background-color: #fff;
+  position: relative;
+  clip-path: polygon(0% 40px, 100% 0%, 100% 100%, 0% 100%);
+  padding: 50px;
+  color: #ffffff;
+  border-radius: 10px;
+}
 
-  .container-values {
-    padding: 50px;
-    padding-left: 100px;
-  }
+.container-values {
+  padding: 50px;
+  padding-left: 100px;
+}
 
-  .Values {
-    padding: 10px;
-    border-radius: 10px;
+.Values {
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+}
 
-    color: #fff;
-  }
+.image-container {
+  display: flex;
+  top: 90%;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  width: 100%; /* Ensure full width */
+  z-index: 10;
+}
 
-  .image-container {
-    display: flex;
-    top : 90%;
-    overflow-x: auto; /* Enable horizontal scrolling */
-    width: 100%; /* Ensure full width */
-    z-index: 10;
-  }
-  
-  .image-card {
-    width: 350px;
-    height: 220px;
-    flex: 0 0 auto; /* Ensure cards don't shrink */
-    margin-right: 10px; /* Adjust spacing between cards */
-    
-  }
+.image-card {
+  width: 350px;
+  height: 220px;
+  flex: 0 0 auto; /* Ensure cards don't shrink */
+  margin-right: 10px; /* Adjust spacing between cards */
+}
 
-  .image-container::-webkit-scrollbar{
-    width: 0; 
-}  
+.image-container::-webkit-scrollbar {
+  width: 0; 
+}
 
 @keyframes moveLeft {
   0% {
-    transform: translateX(0);
+      transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
+      transform: translateX(-100%);
   }
 }
 
-@media screen and (min-width : 590) and (max-width : 1100 ) {
+@media screen and (min-width: 590px) and (max-width: 1100px) {
   .container {
-    padding: 10px;
-    margin-top: 500px;
-}
+      padding: 10px;
+      margin-top: 500px;
+  }
 }
 
 @media screen and (max-width: 678px) {
-
   .container {
-    padding: 10px;
-    margin-top: 100px;
-}
+      padding: 10px;
+      margin-top: 100px;
+  }
 
-  .slider .content h2{
+  .slider .content h2 {
       font-size: 20px;
   }
 
-  .controls{
-      display : none
+  .controls {
+      display: none;
   }
 }
-

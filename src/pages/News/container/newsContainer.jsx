@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './news.css';
-import img2 from 'C:/Users/abhishek/OneDrive - New Street Technologies Pvt Ltd/Desktop/Images/news1.png';
-import img1 from 'C:/Users/abhishek/OneDrive - New Street Technologies Pvt Ltd/Desktop/Images/news2.jpg';
-import img3 from 'C:/Users/abhishek/OneDrive - New Street Technologies Pvt Ltd/Desktop/Images/news3.jpg';
-import img4 from 'C:/Users/abhishek/OneDrive - New Street Technologies Pvt Ltd/Desktop/Images/news2.jpg';
+
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import LanguageIcon from '@mui/icons-material/Language';
@@ -58,31 +55,31 @@ const newsContainer = () => {
 
   const items = [
     {
-      image: img1,
+      image: "https://newstreettech.com/wp-content/uploads/2023/11/Dhanlaxmi-Bank-Visits-NST-Centre-of-Excellence.jpg",
       title: 'Slider 01',
       date: '02-04-2023',
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.',
     },
     {
-      image: img2,
+      image: "https://newstreettech.com/wp-content/uploads/2023/12/image-1.png",
       title: 'Slider 02',
       date: '02-04-2023',
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.',
     },
     {
-      image: img1,
+      image: "https://newstreettech.com/wp-content/uploads/2023/11/Dhanlaxmi-Bank-Inaugurates-Shecommerz-State-Headquarters-powered-by-New-Street-Tech-2000-1.jpg",
       title: 'Slider 01',
       date: '02-04-2023',
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.',
     },
     {
-      image: img3,
+      image: "https://newstreettech.com/wp-content/uploads/2023/11/Emerging-Businesses-5th-Edition.jpg",
       title: 'Slider 03',
       date: '02-04-2023',
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.',
     },
     {
-      image: img4,
+      image: "https://newstreettech.com/wp-content/uploads/2023/07/image3.jpg",
       title: 'Slider 04',
       date: '02-04-2023',
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.',
@@ -126,21 +123,21 @@ const newsContainer = () => {
           </div>
         </Grid>
         <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-            <Typography variant='h1' style={{textAlign : "center", letterSpacing: "2px"}}>
+            <Typography style={{textAlign : "center", letterSpacing: "2px", color : "White", fontFamily : "Arial", fontSize : "2rem"}}>
                 <LanguageIcon/> NEWSTREET NEWS
             </Typography>
         </Grid>
         </Grid>
 
       <Dialog open={dialogOpen} onClose={handleClose} >
-      <DialogTitle sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Typography variant='h2' sx={{ fontFamily: "Arial", fontSize: "1.5rem" }}>
+      <DialogTitle sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+        <Typography style={{ fontFamily : "Arial", fontSize : "2rem" ,fontWeight : "bold"}}>
           {dialogData ? dialogData.title : ''}
         </Typography>
         <Button onClick={handleClose} color="primary">
           ❌
         </Button>
-      </DialogTitle>;
+      </DialogTitle>
         <DialogContent dividers>
           <img src={dialogData ? dialogData.image : ''} alt={dialogData ? dialogData.title : ''} style={{ width: '100%', margin: 'auto' }} />
           <Typography variant="p" gutterBottom style = {{fontFamily : "Arial", fontSize : "1.5rem"}}>
