@@ -1,4 +1,3 @@
-// Contact.jsx
 import React, { useState, useEffect } from 'react'; // Import useState and useEffect hooks
 import Sidenav from '../components/Sidenav';
 import Box from '@mui/material/Box';

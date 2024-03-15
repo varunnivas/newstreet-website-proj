@@ -7,6 +7,7 @@ import News from '../pages/AdminPage/pages/News/components/News'
 import Products from '../pages/AdminPage/pages/Products/components/Products'
 import Contact from '../pages/AdminPage/pages/Contact'
 import Partners from '../pages/AdminPage/pages/Partners/components/Partners';
+import ClientTestimonial from '../pages/AdminPage/pages/ClientTestimonial/components/ClientTestimonial';
 
 const routes = [
     {
@@ -52,6 +53,11 @@ const routes = [
     {
         path:'/partner',
         component:Partners,
+        exact:true,
+    },
+    {
+        path:'/testimonial',
+        component:ClientTestimonial,
         exact:true,
     },
 

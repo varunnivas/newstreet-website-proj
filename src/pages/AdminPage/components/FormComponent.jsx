@@ -7,7 +7,7 @@ const FormComponent = () => {
   const [description, setDescription] = useState('');
   const [file, setFile] = useState(null);
   const dispatch = useDispatch();
-  const token = 'your_token_here'; // Replace with actual token
+  const token = 'your_token_here'; // Replac
 
   const handleSubmit = (e) => {
     e.preventDefault();

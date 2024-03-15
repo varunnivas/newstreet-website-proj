@@ -19,8 +19,9 @@ import InventoryIcon from '@mui/icons-material/Inventory';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import ListIcon from '@mui/icons-material/List';
 import ContactPageIcon from '@mui/icons-material/ContactPage';
-import { logoutUser } from '/Users/kushank/Desktop/Admin/newstreet-website-proj/src/pages/LoginPage/redux/UserSlice';
+import { logout } from '../../LoginPage/redux/UserSlice';
 import { useDispatch } from 'react-redux';
+import ReviewsIcon from '@mui/icons-material/Reviews';
 
 const drawerWidth = 240;
 
@@ -53,7 +54,6 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'flex-end',
   padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
   ...theme.mixins.toolbar,
 }));
 
@@ -80,7 +80,7 @@ export default function Sidenav() {
   const navigate=useNavigate();
   const dispatch = useDispatch();
   const handleLogout = () => {
-    dispatch(logoutUser());
+    dispatch(logout());
     navigate('/login')
   };
 
@@ -195,12 +195,11 @@ export default function Sidenav() {
                 >
                 <ContactPageIcon/>
                 </ListItemIcon>
-                <ListItemText primary="Queries" sx={{ opacity: open ? 1 : 0, color: 'black' }} /> {/* Changed text color to black */}
+                <ListItemText primary="Queries" sx={{ opacity: open ? 1 : 0, color: 'black' }} /> 
               </ListItemButton>
             </ListItem>
         </List>
         <Divider />
-        <br/>
         <br/>
         <Button onClick={handleLogout}>Log Out</Button>      </Drawer>
     </Box>

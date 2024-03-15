@@ -1,4 +1,3 @@
-// actions.jsx
 import axios from 'axios';
 
 export const sendPartnerData = (formData, token) => {

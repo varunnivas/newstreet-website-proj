@@ -3,11 +3,14 @@ import Sidenav from '../../../components/Sidenav';
 import Box from '@mui/material/Box';
 import FormComponent from './FormComponent';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 const Partners = () => {
   const [showForm, setShowForm] = useState(false);
   const [partners, setPartners] = useState([]);
   const [selectedPartner, setSelectedPartner] = useState(null); 
+  const user = useSelector(state => state.user.user);
+  const token = user ? user.token : null;
 
   useEffect(() => {
     fetchPartners();
@@ -34,7 +37,9 @@ const Partners = () => {
 
   const handleDelete = async (partnerId) => {
     try {
-      const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjAyOGI5NzM2ZWZkZGQ5NTZkNzVjNyIsInVzZXJuYW1lIjoibnN0X2FkbWluIiwiaWF0IjoxNzEwMzI4OTcwLCJleHAiOjE3MTA0MTUzNzB9.FQH9KlaJh3e15d9qiWMenCATRaI70HWYbVebJtzqKUg";{
+      if (!token) {
+        console.error('Token is not available');
+        return;
     }
       await axios.delete(`https://nst-website-api.onrender.com/api/v1/partners/${partnerId}`, {
         headers: {
@@ -72,7 +77,7 @@ const Partners = () => {
                 <tr key={partner._id}>
                   <td style={{ border: '1px solid white', padding: '8px', textAlign: 'center' }}>{partner.name}</td>
                   <td style={{ border: '1px solid white', padding: '8px', textAlign: 'center' }}>
-                    <button onClick={() => handleEdit(partner)}>Edit</button>
+                    <button onClick={() => handleEdit(partner)} style={{ marginRight: '30px' }}>Edit</button>
                     <button onClick={() => handleDelete(partner._id)}>Delete</button> 
                   </td>
                 </tr>

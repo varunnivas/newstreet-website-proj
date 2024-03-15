@@ -15,19 +15,18 @@ export const LoginPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const handleLoginEvent = (e) => {
+  const handleLoginEvent = async (e) => {
     e.preventDefault();
     let userCredential = {
-     username,
+      username,
       password
     };
-    dispatch(loginUser(userCredential)).then((result) => {
-      if (result.payload) {
-        setusername('');
-        setPassword('');
-        navigate('/Home');
-      }
-    });
+    try {
+      await dispatch(loginUser(userCredential));
+      navigate('/home'); // Navigate to home after successful login
+    } catch (error) {
+      console.error("Login error:", error);
+    }
   };
 
   return (
@@ -58,7 +57,7 @@ export const LoginPage = () => {
           <br />
           <input
             type="text"
-            username="username"
+            name="username"
             required
             value={username}
             onChange={(e) => setusername(e.target.value)}
@@ -68,7 +67,7 @@ export const LoginPage = () => {
           <br />
           <input
             type="password"
-            username="password"
+            name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />

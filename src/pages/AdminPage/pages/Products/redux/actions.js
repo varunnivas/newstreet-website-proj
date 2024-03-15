@@ -1,4 +1,3 @@
-// actions.js
 import axios from 'axios';
 
 export const sendFormData = (formData, token) => {
