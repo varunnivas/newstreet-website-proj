@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../../Navbar/Navbar';
 import Footer from '../../Footer/footer';
 import { Grid, Typography, Card, CardMedia, Divider, Button, Avatar } from '@mui/material';
 import './career.css';
+import { fetchJobs } from '../redux/thunk';
+import { selectJobs } from '../redux/selector';
 import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import VolunteerActivismOutlinedIcon from '@mui/icons-material/VolunteerActivismOutlined';
@@ -12,6 +14,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import Chip from '@mui/material/Chip';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import {useDispatch, useSelector} from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   hr: {
@@ -35,49 +38,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CareerContainer = () => {
+  const dispatch = useDispatch();
+  const items = useSelector(selectJobs);
 
-  const items = [
-    {
-      title: 'Android Developer',
-      date: '02-04-2023',
-      location: 'Bangalore',
-      responsibilities: 'snkjcnkds kc dc lk  ds cds cds cljds cjds cn cj dscjds jcds ',
-      professionalKnowledge: 'dbcjbdjcdsjc kjds ckjs ckjds kjds kjds ckjds  vgfcgf',
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.',
-    },
-    {
-      title: 'React Developer',
-      date: '02-04-2023',
-      location: 'Bangalore',
-      responsibilities: 'snkjcnkds kc dc lk  ds cds cds cljds cjds cn cj dscjds jcds ',
-      professionalKnowledge: 'dbcjbdjcdsjc kjds ckjs ckjds kjds kjds ckjds  vgfcgf',
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.',
-    },
-    {
-      title: 'Node JS Developer',
-      date: '02-04-2023',
-      location: 'Bangalore',
-      responsibilities: 'snkjcnkds kc dc lk  ds cds cds cljds cjds cn cj dscjds jcds ',
-      professionalKnowledge: 'dbcjbdjcdsjc kjds ckjs ckjds kjds kjds ckjds  vgfcgf',
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.',
-    },
-    {
-      title: 'Java Developer',
-      date: '02-04-2023',
-      location: 'Bangalore',
-      responsibilities: 'snkjcnkds kc dc lk  ds cds cds cljds cjds cn cj dscjds jcds ',
-      professionalKnowledge: 'dbcjbdjcdsjc kjds ckjs ckjds kjds kjds ckjds  vgfcgf',
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.',
-    },
-    {
-      title: 'Blockchain Developer',
-      date: '02-04-2023',
-      location: 'Bangalore',
-      responsibilities: 'snkjcnkds kc dc lk  ds cds cds cljds cjds cn cj dscjds jcds ',
-      professionalKnowledge: 'dbcjbdjcdsjc kjds ckjs ckjds kjds kjds ckjds  vgfcgf',
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.',
-    },
-  ];
+  useEffect(() => {
+    dispatch(fetchJobs());
+  },[])
+
+  console.log(items);
+  
+
 
   const classes = useStyles();
 
@@ -163,38 +133,41 @@ const CareerContainer = () => {
           </Grid>
         </Grid>
 
-        <Grid item xs={12} style={{backgroundColor : "White", borderRadius : "10px"}}>
-        {/* <Divider className={classes.hr} /> */}<br/>
-        <Typography variant='h2' className={classes.jobOpening} style={{ color: "red", alignItems : "center" , fontFamily : "Arial", fontSize : "1.5rem"}}>Job Openings : </Typography><br/>
-        {items.map((item, index) => (
+        <Grid item xs={12} >
+        <Divider className={classes.hr} /><br/>
+        <Typography variant='h2' className={classes.jobOpening} style={{ color: "red", alignItems : "center" , fontFamily : "Arial", fontSize : "1.5rem"}}>Job Openings </Typography><br/>
+        {items?.map((item, index) => (
           <Grid container alignItems="center" spacing={2} key={index} style={{ marginBottom: '10px' }}> {/* Added marginBottom style */}
-                        
             <Grid item xs={10}>
-              <Grid container style={{marginLeft : "10px"}}>
-                <Grid item md = {3}><Typography variant='h3' style = {{fontFamily : "Arial", fontSize : "1.0rem" , color : "red"}}>{item.title}</Typography></Grid>
-                <Grid item md = {2} className='location'><Typography variant='body1' style = {{fontFamily : "Arial", fontSize : "0.5rem"}}>
-                <LocationOnIcon  /><Chip
-                      label = "Banglore"
+              <Grid container style={{ marginLeft: "10px" }}>
+                <Grid item md={3}>
+                  <Typography variant='h3' style={{ fontFamily: "Arial", fontSize: "1.0rem", color: "red" }}>
+                    {item.title}
+                  </Typography>
+                </Grid>
+                <Grid item md={2} className='location'>
+                  <Typography variant='body1' style={{ fontFamily: "Arial", fontSize: "0.5rem" }}>
+                    <LocationOnIcon /><Chip
+                      label="Bangalore"
                       variant="contained"
                       size="small"
-                      style = {{backgroundColor : "darkred"}}
-                    >{item.location}</Chip>
-                    
-                  </Typography></Grid>
-                <Grid item md = {12}><Typography variant='body1' style = {{fontFamily : "Arial", fontSize : "0.8rem" , color : "black"}}>{item.date}</Typography></Grid>
+                      style={{ backgroundColor: "darkred" }}
+                    />
+                  </Typography>
+                </Grid>
               </Grid>
-              
             </Grid>
             <Grid item xs={2} >
-              <Button variant="contained" color="primary" style = {{fontFamily : "Arial", fontSize : "1.0rem" , color : "red", alignContent : "end"}}>Apply</Button>
+              <Button variant="contained" color="primary" style={{ fontFamily: "Arial", fontSize: "1.0rem", color: "red", alignContent: "end" }}>
+                Apply
+              </Button>
             </Grid>
-
             <Grid item xs={12}>
               <Divider className={classes.hr} />
             </Grid>
           </Grid>
-          
         ))}
+
       </Grid>
 
       </Grid>
