@@ -7,6 +7,7 @@ import LanguageIcon from '@mui/icons-material/Language';
 import { Button, Grid, Typography, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
 import Navbar from '../../Navbar/Navbar'
 import Footer from '../../Footer/footer';
+import ClearIcon from '@mui/icons-material/Clear';
 
 const newsContainer = () => {
     const [itemActive, setItemActive] = useState(0);
@@ -135,7 +136,7 @@ const newsContainer = () => {
           {dialogData ? dialogData.title : ''}
         </Typography>
         <Button onClick={handleClose} color="primary">
-          ❌
+          <ClearIcon/>
         </Button>
       </DialogTitle>
         <DialogContent dividers>

@@ -6,6 +6,7 @@ import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE } from 'redux-persist
 import storageSession from 'redux-persist/lib/storage/session';
 import globalReducer from '../redux/slice';
 import  landingPageReducer  from '../pages/LandingPage/redux/slice';
+import  careerReducer  from '../pages/Career/redux/slice';
 
 const persistConfig = {
     key: 'root',
@@ -16,7 +17,8 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
     global: globalReducer,
-    landingPage: landingPageReducer
+    landingPage: landingPageReducer,
+    career: careerReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
