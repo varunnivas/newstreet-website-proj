@@ -3,18 +3,17 @@ import { useDispatch } from 'react-redux';
 import { sendFormData, updateProduct } from '../redux/actions';
 import { useSelector } from 'react-redux';
 
-const FormComponent = ({ product, onUpdate }) => {
+const FormComponent = ({ product, onUpdate, onDeleteSuccess }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [file, setFile] = useState(null);
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const [isFormOpen, setIsFormOpen] = useState(true); // State variable to manage form visibility
+  const [isFormOpen, setIsFormOpen] = useState(true);
   const dispatch = useDispatch();
   const user = useSelector(state => state.user.user);
   const token = user ? user.token : null;
 
-  // Set initial state based on the product prop
   useEffect(() => {
     if (product) {
       setTitle(product.title || '');
@@ -30,34 +29,33 @@ const FormComponent = ({ product, onUpdate }) => {
     formData.append('file', file);
 
     try {
-      // Check if product exists to determine if it's an update or creation
       if (product) {
-        // Update product
-        await dispatch(updateProduct(product._id, formData, token)); // Pass product ID
+        await dispatch(updateProduct(product._id, formData, token));
       } else {
-        // Create new product
         await dispatch(sendFormData(formData, token));
       }
+      onUpdate(); 
 
-      // Reset form fields and display success message
       setTitle('');
       setDescription('');
       setFile(null);
       setSuccessMessage('Form submitted successfully');
       setErrorMessage('');
-      setIsFormOpen(false); // Close the form after submission
+      setIsFormOpen(false);
 
-      // Auto-hide success message after 3 seconds
       setTimeout(() => {
         setSuccessMessage('');
       }, 2000);
     } catch (error) {
-      // Display error message if submission fails
       setSuccessMessage('');
       setErrorMessage('Error submitting form');
     }
 
-    onUpdate(); // Call onUpdate after successful submission
+    if (product) {
+      onUpdate();
+    } else {
+      onDeleteSuccess();
+    }
   };
 
   return (
@@ -80,7 +78,6 @@ const FormComponent = ({ product, onUpdate }) => {
         </form>
       )}
 
-      {/* Success and Error Messages Banner */}
       {(successMessage || errorMessage) && (
         <div style={{ position: 'fixed', top: 10, right: 10, backgroundColor: errorMessage ? 'red' : 'green', color: '#fff', padding: '10px', borderRadius: '5px', zIndex: 999 }}>
           {errorMessage || successMessage}

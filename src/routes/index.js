@@ -34,7 +34,10 @@ const routes = [
         path:'/home',
         component:HomePage,
         exact:true,
+        isPrivate: true, 
+        roles: ['privateRole'],
     },
+    
     {
         path:'/news',
         component:News,

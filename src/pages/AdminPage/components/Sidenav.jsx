@@ -22,6 +22,7 @@ import ContactPageIcon from '@mui/icons-material/ContactPage';
 import { logout } from '../../LoginPage/redux/UserSlice';
 import { useDispatch } from 'react-redux';
 import ReviewsIcon from '@mui/icons-material/Reviews';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const drawerWidth = 240;
 
@@ -85,40 +86,39 @@ export default function Sidenav() {
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          {/* <IconButton onClick={()=>setOpen(!open)}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton> */}
-        </DrawerHeader>
-        <Button variant="contained" color="secondary" onClick={()=>{navigate("/home")}}>
-          New Street
-        </Button>
-        <Divider />
-        <List>
-        <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/home")}}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                <HomeIcon /> 
-                </ListItemIcon>
-                <ListItemText primary="DashBoard" sx={{ opacity: open ? 1 : 0, color: 'black' }} /> {/* Changed text color to black */}
-              </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/products")}}>
+<Box sx={{ display: 'flex' }}>
+  <CssBaseline />
+  <Drawer variant="permanent" open={open}>
+    <Button
+      variant="contained"
+      color="secondary"
+      onClick={() => {navigate("/home")}}
+      style={{backgroundColor:'white'}}
+      startIcon={<img src="https://newstreettech.com/wp-content/uploads/2020/07/New-Street-Tech-footer-logo.png" alt="New Street" />} // Replace "path_to_your_image" with the actual path to your image
+    ></Button>
+    <Divider />
+    <List>
+      <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/home")}}>
+        <ListItemButton
+          sx={{
+            minHeight: 48,
+            justifyContent: open ? 'initial' : 'center',
+            px: 2.5,
+          }}
+        >
+          <ListItemIcon
+            sx={{
+              minWidth: 0,
+              mr: open ? 3 : 'auto',
+              justifyContent: 'center',
+            }}
+          >
+            <HomeIcon /> 
+          </ListItemIcon>
+          <ListItemText primary="DashBoard" sx={{ opacity: open ? 1 : 0, color: 'black' }} />
+        </ListItemButton>
+      </ListItem>
+      <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/products")}}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -198,10 +198,31 @@ export default function Sidenav() {
                 <ListItemText primary="Queries" sx={{ opacity: open ? 1 : 0, color: 'black' }} /> 
               </ListItemButton>
             </ListItem>
-        </List>
-        <Divider />
-        <br/>
-        <Button onClick={handleLogout}>Log Out</Button>      </Drawer>
-    </Box>
+      <Divider />
+    <br/>
+      <ListItem disablePadding sx={{ display: 'block' }} onClick={handleLogout}>
+        <ListItemButton
+          sx={{
+            minHeight: 48,
+            justifyContent: open ? 'initial' : 'center',
+            px: 2.5,
+          }}
+        >
+          <ListItemIcon
+            sx={{
+              minWidth: 0,
+              mr: open ? 3 : 'auto',
+              justifyContent: 'center',
+            }}
+          >
+            <LogoutIcon/>
+          </ListItemIcon>
+          <ListItemText primary="Log Out" sx={{ opacity: open ? 1 : 0, color: 'black' }} />
+        </ListItemButton>
+      </ListItem>
+    </List>
+  </Drawer>
+</Box>
+
   );
 }

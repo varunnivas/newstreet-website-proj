@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Sidenav from '../../../components/Sidenav';
 import Box from '@mui/material/Box';
 import FormComponent from './FormComponent';
@@ -12,7 +12,6 @@ const Products = () => {
   const [deleteMessage, setDeleteMessage] = useState('');
   const user = useSelector(state => state.user.user);
   const token = user ? user.token : null;
-
 
   useEffect(() => {
     fetchProducts();
@@ -29,46 +28,34 @@ const Products = () => {
 
   const toggleForm = () => {
     setShowForm(!showForm);
-    setSelectedProduct(null);
+    setSelectedProduct(null); // Reset selected product when toggling form
   };
 
   const handleEdit = (product) => {
+    setShowForm(true); // Ensure form is shown when editing a product
     setSelectedProduct(product);
-    setShowForm(true);
   };
 
   const handleDelete = async (productId) => {
     try {
-      // Ensure token is defined before using it
-      if (!token) {
-        console.error('Token is not available');
-        return;
-      }
-      
-      // Use the token for authorization
       await axios.delete(`https://nst-website-api.onrender.com/api/v1/products/${productId}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
       });
-      
-      // Refresh products after deletion
-      fetchProducts();
-  
-      // Set delete message
+      fetchProducts(); // Reload products after deletion
       setDeleteMessage('Product deleted successfully');
-  
-      // Hide the delete message after 2 seconds
       setTimeout(() => {
         setDeleteMessage('');
-      }, 2000);
+      }, 2000); // Hide the delete message after 2 seconds
     } catch (error) {
       console.error('Error deleting product:', error);
     }
   };
-  
+
   const handleUpdate = () => {
     fetchProducts(); // Reload products after successful update
+    setSelectedProduct(null); // Reset selectedProduct after successful update
   };
 
   return (
@@ -78,7 +65,7 @@ const Products = () => {
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <h3>Products</h3>
           <button onClick={toggleForm}>Add New Product</button>
-          {showForm && <FormComponent product={selectedProduct} onUpdate={handleUpdate} />}
+          {showForm && <FormComponent product={selectedProduct} onUpdate={fetchProducts} />}
           <h2>Existing Products</h2>
           <table style={{ border: '1px solid white', borderCollapse: 'collapse', width: '100%' }}>
             <thead>

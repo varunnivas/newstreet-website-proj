@@ -12,6 +12,10 @@ const NewsFormComponent = ({ initialData, onUpdate, onDeleteSuccess }) => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.user.user);
   const token = user ? user.token : null;
+  const toggleForm = () => {
+    setShowForm(!showForm);
+    setEditData(null); // Reset edit data when toggling form
+  };
 
   useEffect(() => {
     if (initialData) {
@@ -66,7 +70,7 @@ const NewsFormComponent = ({ initialData, onUpdate, onDeleteSuccess }) => {
           <label>File:</label>
           <input type="file" onChange={(e) => setFile(e.target.files[0])} style={{ width: '20%', padding: '0.5rem', borderRadius: '0.25rem', border: '1px solid #ccc' }} />
         </div>
-        <button type="submit" style={{ width: '20%', padding: '0.5rem', borderRadius: '0.25rem', border: 'none', backgroundColor: 'red', color: '#fff', cursor: 'pointer' }}>Submit</button>
+        <button onClick={toggleForm} type="submit" style={{ width: '20%', padding: '0.5rem', borderRadius: '0.25rem', border: 'none', backgroundColor: 'red', color: '#fff', cursor: 'pointer' }}>Submit</button>
       </form>
       
       {/* Success and Error Messages Banner */}

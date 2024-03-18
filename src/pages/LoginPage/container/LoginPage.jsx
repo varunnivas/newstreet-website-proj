@@ -45,11 +45,15 @@ export const LoginPage = () => {
           border: '1px solid #ccc',
           borderRadius: '5px',
           textAlign: 'center', // Center aligning the content
+          backgroundColor:'white',
+          color:'black'
         }}
       >
-        <Button variant="contained" color="secondary">
-          New Street
-        </Button>
+    <Button
+      variant="contained"
+      style={{backgroundColor:'white'} }
+      startIcon={<img src="https://newstreettech.com/wp-content/uploads/2020/07/New-Street-Tech-footer-logo.png" alt="New Street" />} // Replace "path_to_your_image" with the actual path to your image
+    ></Button>
         <br/>
         <br/>
         <form onSubmit={handleLoginEvent}>
@@ -61,6 +65,7 @@ export const LoginPage = () => {
             required
             value={username}
             onChange={(e) => setusername(e.target.value)}
+            style={{ backgroundColor: 'white', color: 'black', borderRadius: '5px', padding: '5px' }} 
           />
           <br />
           <label htmlFor="password">Password</label>
@@ -70,6 +75,7 @@ export const LoginPage = () => {
             name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            style={{ backgroundColor: 'white', color: 'black', borderRadius: '5px', padding: '5px' }} 
           />
           <br />
           <br />

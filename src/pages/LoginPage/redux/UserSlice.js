@@ -34,7 +34,7 @@ const userSlice = createSlice({
     name: 'user',
     initialState: {
         loading: false,
-        user: getUserFromLocalStorage(), // Load user data from local storage 
+        user: getUserFromLocalStorage(), 
         error: null
     },
     reducers: {
@@ -42,7 +42,7 @@ const userSlice = createSlice({
             state.loading = false;
             state.user = null;
             state.error = null;
-            localStorage.removeItem('user'); // Clear user data from local storage on logout
+            localStorage.removeItem('user'); 
         }
     },
     extraReducers: (builder) => {
