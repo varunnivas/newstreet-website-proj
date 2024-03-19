@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Sidenav from '../../../components/Sidenav';
 import Box from '@mui/material/Box';
-import NewsFormComponent from './FormComponent';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
+import ReusableFormComponent from '../../../components/ReusableFormComponent';
+import { sendFormData,updateNews } from '../redux/actions';
 
 const News = () => {
   const [showForm, setShowForm] = useState(false);
@@ -52,6 +53,10 @@ const News = () => {
       console.error('Error deleting news:', error);
     }
   };
+  const handleUpdate = () => {
+    fetchNews(); // Reload products after successful update
+    setEditData(null); // Reset selectedProduct after successful update
+};
 
   return (
     <>
@@ -60,7 +65,7 @@ const News = () => {
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <h3>News</h3>
           <button onClick={toggleForm}>Add News</button>
-          {showForm && <NewsFormComponent initialData={editData} onUpdate={fetchNews} />}
+          {showForm && <ReusableFormComponent initialValues={editData} onUpdate={handleUpdate} onDeleteSuccess={fetchNews} sendFormData={sendFormData} update={updateNews} />}
           <h2>Existing News</h2>
           <div style={{ position: 'fixed', top: '10px', right: '10px', zIndex: '999' }}>
             {successMessage && (
