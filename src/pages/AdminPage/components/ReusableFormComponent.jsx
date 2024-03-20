@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
-const ReusableFormComponent = ({ initialValues = {}, onUpdate, onDeleteSuccess, sendFormData, update ,inputFields}) => {
+const ReusableFormComponent = ({ initialValues = {}, onUpdate, onDeleteSuccess, sendFormData, update }) => {
     const [title, setTitle] = useState(initialValues?.title || '');
     const [description, setDescription] = useState(initialValues?.description || '');
     const [file, setFile] = useState(null);
@@ -26,22 +26,24 @@ const ReusableFormComponent = ({ initialValues = {}, onUpdate, onDeleteSuccess, 
         formData.append('title', title);
         formData.append('description', description);
         formData.append('file', file);
-
+    
         try {
             if (initialValues) {
                 await dispatch(update(initialValues._id, formData, token));
+                setSuccessMessage('Updated successfully');
+                onUpdate(); // Move onUpdate inside the try block
             } else {
                 await dispatch(sendFormData(formData, token));
+                setSuccessMessage('Added successfully');
+                onUpdate(); // Move onUpdate inside the try block
             }
-            onUpdate(); 
-
+    
             setTitle('');
             setDescription('');
             setFile(null);
-            setSuccessMessage('Form submitted successfully');
             setErrorMessage('');
             setIsFormOpen(false);
-
+    
             setTimeout(() => {
                 setSuccessMessage('');
             }, 2000);
@@ -49,17 +51,17 @@ const ReusableFormComponent = ({ initialValues = {}, onUpdate, onDeleteSuccess, 
             setSuccessMessage('');
             setErrorMessage('Error submitting form');
         }
-
+    
+        // Move this section outside the try-catch block to prevent redundant calls
         if (initialValues) {
-            onUpdate();
-        } else {
             onDeleteSuccess();
         }
     };
+    
 
     return (
-        isFormOpen && (
-            <>
+        <div style={{ position: 'relative' }}>
+            {isFormOpen && (
                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
                     <div style={{ marginBottom: '1rem' }}>
                         <label style={{ marginBottom: '0.5rem' }}>Title:</label>
@@ -75,14 +77,15 @@ const ReusableFormComponent = ({ initialValues = {}, onUpdate, onDeleteSuccess, 
                     </div>
                     <button type="submit" style={{ width: '20%', padding: '0.5rem', borderRadius: '0.25rem', border: 'none', backgroundColor: 'red', color: '#fff', cursor: 'pointer' }}>Submit</button>
                 </form>
+            )}
 
-                {(successMessage || errorMessage) && (
-                    <div style={{ position: 'fixed', top: 10, right: 10, backgroundColor: errorMessage ? 'red' : 'green', color: '#fff', padding: '10px', borderRadius: '5px', zIndex: 999 }}>
-                        {errorMessage || successMessage}
-                    </div>
-                )}
-            </>
-        )
+            {/* Success and Error Messages Banner */}
+            {(successMessage || errorMessage) && (
+                <div style={{ position: 'absolute', top: 10, right: 10, backgroundColor: errorMessage ? 'red' : 'green', color: '#fff', padding: '10px', borderRadius: '5px', zIndex: 999 }}>
+                    {errorMessage || successMessage}
+                </div>
+            )}
+        </div>
     );
 };
 
