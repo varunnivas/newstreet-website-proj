@@ -12,23 +12,23 @@ const NumberRow = () => {
   ]; // Replace with the path to your image
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between',borderRadius: '40px', marginLeft:'10px', marginRight:'20px' }}>
+    <Box sx={{ background: 'linear-gradient(to right, hsl(0, 19%, 2%), hsl(0, 60%, 30%))', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '5px', marginBottom: '2px', marginRight:'10px', mt:0}}>
       {data.map((item, index) => (
-        <Box key={index} sx={{ mr: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom:'20px', marginRight:'20px'}}>
-          <Typography variant="h2" sx={{ ml: 0, mr: 0, fontSize: '3rem', textDecoration: 'null', textDecorationColor: 'white' }}>{item}</Typography>
+        <Box key={index} sx={{ mr: 9, ml: 9, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Typography variant="h2" sx={{ ml:8, mr: 11, fontSize: '3rem', textDecorationColor: 'white', alignContent: 'center' }}>{item}</Typography>
 
           <Typography
             variant="h1"
-            color={index === 2 ? 'white' : 'white'}
-            sx={{ mr: 2, mt: 2, textDecoration: index === 3 ? 'underline' : 'none' }} // Conditional underline
+            color={index === 3 ? 'white' : 'white'}
+            sx={{ ml:'3',mr: '8', mt: 1, textDecoration: index === 3 ? 'underline' : 'none', alignContent:'center' }} // Conditional underline
           >
             {labels[index]}
           </Typography>
           {images[index] && (
-            <img src={images[index]} alt={labels[index]} style={{ width: '100px', height: '100px' }} />
+            <img src={images[index]} alt={labels[index]} style={{ width: '110px', height: '100px' , ml:'8', marginLeft:'0px', marginRight:'20px',mt:2}} />
           )}
 
-          {index !== data.length + 1 && <Divider sx={{ width: '100%', bgcolor: 'red', mt: 2 }} />}
+          {index !== data.length && <Divider sx={{ width: '100%', bgcolor: 'white', mt: 2, ml:2, mr:4,justifyContent:"center" }} />}
         </Box>
       ))}
     </Box>
@@ -37,11 +37,13 @@ const NumberRow = () => {
 
 const BigNumberCard = () => {
   return (
-    <Card sx={{ width: '100%', p: 0, margin: '0' }}> {/* Set width, padding, and margin */}
-      <CardContent sx={{ background: 'linear-gradient(to right, hsl(0, 10%, 0%), hsl(0, 60%, 20%))' }}>
-        <NumberRow />
-      </CardContent>
-    </Card>
+    <Box sx={{ backgroundColor: 'linear-gradient(to right, hsl(0, 10%, 0%)' }}> 
+      <Card sx={{ background: 'linear-gradient(to right, hsl(0, 10%, 0%), hsl(0, 60%, 20%))', display: 'flex', alignItems: 'center', borderRadius: '0px', p: 0, width: '100%' , padding:'0px'}}> 
+        <CardContent sx={{ background: 'linear-gradient(to right, hsl(0, 10%, 0%), hsl(0, 60%, 20%))', width:'100%'}}>
+          <NumberRow />
+        </CardContent>
+      </Card>
+    </Box>
   );
 };
 

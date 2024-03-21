@@ -1,11 +1,12 @@
 import { Box, Button, CardMedia, Container, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const VideoBackground = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // Check for mobile devices
 
   return (
-    <Container maxWidth={"false"} sx={{ position: 'relative',marginBottom:'10px'}}>
+    <Container maxWidth={"false"} sx={{ position: 'relative',marginBottom:'2px', background:'black'}}>
       <Box
         sx={{
           position: 'relative',
@@ -53,13 +54,16 @@ const VideoBackground = () => {
           <Typography
             variant={isMobile ? 'h3' : 'h1'}
             component="h1"
-            sx={{ fontSize: isMobile ? '2.5rem' : '4rem', lineHeight: '1.5', textAlign: 'center', lineHeightStep: '1' }}
+            sx={{ fontSize: isMobile ? '2.5rem' : '4rem', lineHeight: '1.55', textAlign: 'center', lineHeightStep: '1', mt:14}}
           >
             Revolutionize Payments <br/> with Secure, Streamlined <br/> Blockchain Solutions.
           </Typography>
-          <Button variant="contained" color="primary" sx={{ padding: isMobile ? '10px 20px' : '10px 30px', marginBottom:'20px', fontSize: '1.5rem' }}> {/* Add some top margin to the button */}
-            Learn More
-          </Button>
+          {/* Wrap the button with Link component and specify the path to products page */}
+          <Link to="/products" style={{ textDecoration: 'none' }}>
+            <Button variant="contained" color="primary" sx={{ padding: isMobile ? '10px 20px' : '10px 30px', marginBottom:'01px', fontSize: '1.5rem' }}> {/* Add some top margin to the button */}
+              Learn More
+            </Button>
+          </Link>
         </Box>
       </Box>
     </Container>
