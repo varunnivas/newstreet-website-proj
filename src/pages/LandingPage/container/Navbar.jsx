@@ -1,17 +1,18 @@
 import { AppBar, Toolbar, IconButton, Button, useMediaQuery, styled, Grid, useScrollTrigger } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import theme from '../../../theme';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const StyledAppBar = styled(AppBar)(
   ({ theme }) => ({
-    background: `linear-gradient(to right, rgba(244, 67, 54, 0.8), rgba(0, 0, 0, 0.8))`,
-    opacity: 0.87,
+    background: "black",
+    opacity: 0.85,
     transition: theme.transitions.create(['transform'], {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    transform:'translateY(0)',
+    transform: 'translateY(0)',
   })
 );
 
@@ -19,7 +20,7 @@ const Toolbar1 = styled(Toolbar)(({ theme }) => ({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  backgroundColor: theme.palette.primary.main,
+  backgroundColor: 'linear-gradient(to right, rgba(244, 67, 54, 0.8), rgba(0, 0, 0, 0.8))`',
   color: theme.palette.getContrastText(theme.palette.primary.main),
 }));
 
@@ -29,16 +30,20 @@ const StyledButton = styled(Button)(({ theme, clicked }) => ({
   borderRadius: theme.shape.borderRadius,
   fontWeight: 'bold',
   textTransform: 'uppercase',
+  color: clicked ? 'red' : 'inherit', // Change color to red when clicked
   '&:hover': {
     boxShadow: theme.shadows[1],
   },
 }));
 
 const NavBar = () => {
-  const [clicked, setClicked] = useState(false);
+  const navigate = useNavigate();
+  const [clicked, setClicked] = useState(Array(5).fill(false)); // Initialize clicked state for each button
 
-  const handleClick = () => {
-    setClicked(true);
+  const handleButtonClick = (index) => {
+    const newClickedState = [...clicked];
+    newClickedState[index] = true; // Set the clicked state of the button at index to true
+    setClicked(newClickedState);
   };
 
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -52,10 +57,23 @@ const NavBar = () => {
     threshold: 0,
   });
 
+  useEffect(() => {
+    const handleScrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    };
+
+    if (clicked[0]) {
+      handleScrollToTop();
+    }
+  }, [clicked]);
+
   return (
-    <StyledAppBar maxWidth={false} position="fixed" style={{ transform: shouldShowAppBar ? 'translateY(0)' : 'translateY(-100%)' }}>
+    <StyledAppBar>
       <Toolbar1>
-        <IconButton edge="start" color="inherit" aria-label="menu">
+        <IconButton edge="start" color="red" aria-label="menu">
           <img src="https://newstreettech.com/wp-content/uploads/2020/07/New-Street-Tech-footer-logo.png" alt="logo" style={{ width: isMobile ? '190px' : '150px', maxHeight: isMobile ? '150px' : 'auto' }} />
         </IconButton>
 
@@ -66,11 +84,11 @@ const NavBar = () => {
             </IconButton>
           ) : (
             <>
-              <StyledButton color="inherit" onClick={handleClick}>Home</StyledButton>
-              <StyledButton color="inherit" onClick={handleClick}>Products</StyledButton>
-              <StyledButton color="inherit"onClick={handleClick}>News</StyledButton>
-              <StyledButton color="inherit"onClick={handleClick} >Careers</StyledButton>
-              <StyledButton color="inherit" onClick={handleClick}>Contact Us</StyledButton>
+              <StyledButton color="inherit" onClick={() => { navigate('/'); handleButtonClick(0); }}>Home</StyledButton>
+              <StyledButton color="inherit" onClick={() => { navigate('/products'); handleButtonClick(1); }}>Products</StyledButton>
+              <StyledButton color="inherit" onClick={() => { handleButtonClick(2); }}>News</StyledButton>
+              <StyledButton color="inherit" onClick={() => { handleButtonClick(3); }}>Careers</StyledButton>
+              <StyledButton color="inherit" onClick={() => { handleButtonClick(4); }}>Contact Us</StyledButton>
             </>
           )}
         </Grid>

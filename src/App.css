@@ -37,6 +37,11 @@
 
 .card {
   padding: 2em;
+  transition: height 1s ease-in-out;
+  height: auto;
+}
+.card:hover {
+  height: 400px; /* Set the desired expanded height when hovered */
 }
 
 .read-the-docs {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Typography, Grid, Card, CardContent, Avatar, Paper } from '@mui/material';
 import NavBar from '../LandingPage/container/Navbar';
 import { Link } from 'react-router-dom';
@@ -18,6 +18,16 @@ const AboutUsPage = () => {
     "https://www.linkedin.com/in/maya-shenoy-2b486923/",
   ];
 
+  // Add descriptions for each team member
+  const descriptions = [
+    "Sajeev is the Chairman & CEO of the company. He has over 20 years of experience in the industry.",
+    "Shrish is the Chief Business Officer. He is responsible for the company's business strategy.",
+    "Maya is the Chief People Officer. She oversees the company's HR policies and culture.",
+  ];
+
+  // State to track hover status for each card
+  const [hoveredCard, setHoveredCard] = useState(null);
+
   return (
     <>
       <NavBar />
@@ -27,83 +37,69 @@ const AboutUsPage = () => {
             backgroundImage: `url(${coverImageUrl})`,
             backgroundSize: 'cover',
             zIndex: 2,
-            height: '700px',
+            height: '753px',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
           }}
         >
-          <Typography variant="h1" color="textPrimary" style={{ marginTop: '100px', marginBottom: '655px', color: 'white', textAlign: 'center', fontSize: '6rem', zIndex: 0 }}>
+          <Typography variant="h1" color="textPrimary" style={{ marginTop: '90px', marginBottom: '695px', color: 'white', textAlign: 'center', fontSize: '5rem', zIndex: 0, fontWeight:'400'}}>
             About Us
           </Typography>
         </div>
-        <div style={{ zIndex: 2, background: 'linear-gradient(to left, hsl(0, 19%, 2%), hsl(0, 60%, 30%))' }}>
-          <Container style={{ marginTop: '5px', marginBottom: '40px', textAlign: 'center', textShadow: '20px' }}>
-            <Typography variant="h1" color='white' gutterBottom style={{ fontSize: '3.6rem', mt:2, fontWeight:'400'}}>
-              Our Mission
-            </Typography>
-            <Typography variant="body" color='white' style={{ fontSize: '1.2rem', mt:3}}>
-              Winner of PICUP 2020 "Emerging Tech Platform" Award & Business World's "Best Use of Blockchain in BFSI" Award, New Street leverages cutting edge technologies like Blockchain, AI, DApps, IOT, etc. to create and operate Hi-tech Ecosystems that will facilitate powerful re-imagination of your products, processes & partnerships to deliver unprecedented & delightful customer experience.
-            </Typography>
-          </Container>
+        <div style={{ zIndex: 2 }}>
+          <div style={{ background: 'linear-gradient(to left, hsl(0, 19%, 2%), hsl(0, 60%, 30%))' }}>
+            <Container style={{ marginTop: '5px', textAlign: 'center', textShadow: '20px' }}>
+              {/* Mission Section */}
+            </Container>
 
-          {/* Team Section */}
-          <Container>
-            <Typography variant="h1" gutterBottom style={{ fontSize: '3.6rem', textAlign: 'center', lineHeight: '100px', fontWeight:'400', mt:2, marginTop:'30px'}}>
-              Our Team
-            </Typography>
-            <Grid container spacing={3}>
-              {/* Employee Cards */}
-              {photoLinks.map((photoLink, index) => (
-                <Grid item xs={12} sm={6} md={4} key={index}>
-                  <Paper elevation={3}>
-                    <Card variant="outlined" sx={{ position: 'relative' }}>
-                      <CardContent style={{ textAlign: 'center', background:'#6B1111', minHeight: '250px' }}>
-                        <Avatar
-                          alt={`Photo ${index + 1}`}
-                          src={photoLink}
-                          sx={{ width: 135, height: 150, margin: 'auto' }}
-                        />
-                        <Typography variant="h3" component="div" style={{ marginTop: '10px', color:'white', marginBottom:'15px', fontSize:'2.5rem', mt:2}}>
-                          {names[index]}
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary" component="div" style={{color:'white', lineHeight:'2', mt:2, marginBottom:'15px'}}>
-                          {titles[index]}
-                        </Typography>
-                        {linkedInUrls[index] && (
-                          <Link to={linkedInUrls[index]} target="_blank" style={{ color: 'white', textDecoration: 'none' }}>
-                            <img src="https://imgs.search.brave.com/KSg67-RXjEB7oNcvs4mjTRkAshQrCirzAaPFdvk4wEw/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/bG9nby53aW5lL2Ev/bG9nby9MaW5rZWRJ/bi9MaW5rZWRJbi1J/Y29uLUxvZ28ud2lu/ZS5zdmc.svg" alt="LinkedIn" style={{ width: '50px', height: '40px', marginTop: '10px' }} />
-                          </Link>
-                        )}
-                      </CardContent>
-                      <CardContent style={{ textAlign: 'center', background:'#6B1111', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backfaceVisibility: 'hidden', transformStyle: 'preserve-3d', transition: 'transform 0.8s' }} sx={{ transform: 'rotateY(180deg)' }}>
-                        {/* Additional content to show on hover */}
-                        <Typography variant="h3" component="div" style={{ marginTop: '20px', color:'white', marginBottom:'15px', fontSize:'2.5rem', mt:2}}>
-                          {names[index]}
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary" component="div" style={{color:'white', lineHeight:'2', mt:2, marginBottom:'15px'}}>
-                          {titles[index]}
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary" component="div" style={{color:'white', lineHeight:'2', mt:2, marginBottom:'25px'}}>
-                          {/* Add additional information for Sajeev */}
-                          {names[index] === 'Sajeev' && (
-                            <>
-                              Sajeev is the Founder of New Street Tech. He brings to New Street his vast experience in banking, microfinance, payments, and technology. He has run multi-billion-dollar businesses, built and managed high-performance organizations across the globe, and has a passion for leveraging disruptive technologies in enhancing conventional business models. Sajeev served at Citigroup for over 18 years.
-                            </>
+            {/* Team Section */}
+            <Container style={{ marginBottom: '30px' }}>
+              <Typography variant="h1" gutterBottom style={{ fontSize: '3.6rem', textAlign: 'center', lineHeight: '100px', fontWeight:'400', mt:2, marginTop:'10px'}}>
+                Our Team
+              </Typography>
+              <Grid container spacing={3}>
+                {/* Employee Cards */}
+                {photoLinks.map((photoLink, index) => (
+                  <Grid item xs={12} sm={6} md={4} key={index}>
+                    <Paper elevation={3}>
+                      <Card 
+                        variant="outlined" 
+                        sx={{ position: 'relative', transition: 'height 0.3s' }} 
+                        style={{ height: hoveredCard === index ? 'auto' : '250px' }}
+                        onMouseEnter={() => setHoveredCard(index)}
+                        onMouseLeave={() => setHoveredCard(null)}
+                      >
+                        <CardContent 
+                          style={{ 
+                            textAlign: 'center', 
+                            background: hoveredCard === index ? '#6B1111' : '#292626', 
+                          }}
+                        >
+                          <Avatar
+                            alt={`Photo ${index + 1}`}
+                            src={photoLink}
+                            sx={{ width: 135, height: 150, margin: 'auto' }}
+                          />
+                          <Typography variant="h3" component="div" style={{ marginTop: '10px', color:'white', marginBottom:'15px', fontSize:'2.5rem', mt:2}}>
+                            {names[index]}
+                          </Typography>
+                          <Typography variant="body2" color="textSecondary" component="div" style={{color:'white', lineHeight:'2', mt:2, marginBottom:'15px'}}>
+                            {titles[index]}
+                          </Typography>
+                          {hoveredCard === index && (
+                            <Typography variant="body2" color="textSecondary" component="div" style={{color:'white', lineHeight:'2', mt:2, marginBottom:'15px'}}>
+                              {descriptions[index]}
+                            </Typography>
                           )}
-                        </Typography>
-                        {linkedInUrls[index] && (
-                          <Link to={linkedInUrls[index]} target="_blank" style={{ color: 'white', textDecoration: 'none' }}>
-                            <img src="https://imgs.search.brave.com/KSg67-RXjEB7oNcvs4mjTRkAshQrCirzAaPFdvk4wEw/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/bG9nby53aW5lL2Ev/bG9nby9MaW5rZWRJ/bi9MaW5rZWRJbi1J/Y29uLUxvZ28ud2lu/ZS5zdmc.svg" alt="LinkedIn" style={{ width: '50px', height: '40px', marginTop: '10px' }} />
-                          </Link>
-                        )}
-                      </CardContent>
-                    </Card>
-                  </Paper>
-                </Grid>
-              ))}
-            </Grid>
-          </Container>
+                        </CardContent>
+                      </Card>
+                    </Paper>
+                  </Grid>
+                ))}
+              </Grid>
+            </Container>
+          </div>
         </div>
       </div>
     </>

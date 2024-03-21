@@ -13,7 +13,7 @@ const theme = createTheme({
       contrastText: "#fff",
     },
     background: {
-      default: "rgb(10, 10, 10)",
+      default: "linear-gradient(to right, hsl(0, 10%, 0%), hsl(0, 60%, 20%))",
     },
     text: {
       primary: "#C02942",
@@ -23,14 +23,14 @@ const theme = createTheme({
     fontSize: 20,
     fontFamily: "Poppins",
     p: {
-      fontSize: "0.9rem",
-      fontFamily: "cursive",
+      fontSize: "1.15rem",
+      fontFamily: "Poppins",
       lineHeight: 1.5,
       margin: "0 0 1rem",
       color: "#808",
     },
     h1: {
-      fontSize: "2rem",
+      fontSize: "3rem",
       fontWeight: "900",
       color: "#fff",
     },

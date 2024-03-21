@@ -1,3 +1,4 @@
+import React from 'react';
 import { Box, Button, CardMedia, Container, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
@@ -54,7 +55,7 @@ const VideoBackground = () => {
           <Typography
             variant={isMobile ? 'h3' : 'h1'}
             component="h1"
-            sx={{ fontSize: isMobile ? '2.5rem' : '4rem', lineHeight: '1.55', textAlign: 'center', lineHeightStep: '1', mt:14}}
+            sx={{ fontSize: isMobile ? '2.5rem' : '4rem', lineHeight: '1.55', textAlign: 'center', lineHeightStep: '1', mt:14, animation: 'floatText 5s infinite' }} // Added animation
           >
             Revolutionize Payments <br/> with Secure, Streamlined <br/> Blockchain Solutions.
           </Typography>

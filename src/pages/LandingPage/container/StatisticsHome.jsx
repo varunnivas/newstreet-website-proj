@@ -14,21 +14,43 @@ const NumberRow = () => {
   return (
     <Box sx={{ background: 'linear-gradient(to right, hsl(0, 19%, 2%), hsl(0, 60%, 30%))', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '5px', marginBottom: '2px', marginRight:'10px', mt:0}}>
       {data.map((item, index) => (
-        <Box key={index} sx={{ mr: 9, ml: 9, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <Typography variant="h2" sx={{ ml:8, mr: 11, fontSize: '3rem', textDecorationColor: 'white', alignContent: 'center' }}>{item}</Typography>
-
+        <Box key={index} sx={{ mr: 11, ml: 20, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Typography variant="h2" sx={{ ml:10, mr: 12, fontSize: '3rem', textDecorationColor: 'white', alignContent: 'center', animation: `numberAnimation${index} 2s ease-in-out forwards` }}>{item}</Typography>
           <Typography
             variant="h1"
             color={index === 3 ? 'white' : 'white'}
-            sx={{ ml:'3',mr: '8', mt: 1, textDecoration: index === 3 ? 'underline' : 'none', alignContent:'center' }} // Conditional underline
+            sx={{ ml:'7',mr: '5', mt: 1, textDecoration: index === 3 ? 'underline' : 'none', alignContent:'center', fontWeight:'400', animation: `textAnimation${index} 2s ease-in-out forwards` }} // Conditional underline
           >
             {labels[index]}
           </Typography>
           {images[index] && (
             <img src={images[index]} alt={labels[index]} style={{ width: '110px', height: '100px' , ml:'8', marginLeft:'0px', marginRight:'20px',mt:2}} />
           )}
-
           {index !== data.length && <Divider sx={{ width: '100%', bgcolor: 'white', mt: 2, ml:2, mr:4,justifyContent:"center" }} />}
+
+          {/* CSS Keyframe Animations */}
+          <style>
+            {`@keyframes numberAnimation${index} {
+              from {
+                opacity: 0;
+                transform: translateY(50px);
+              }
+              to {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+            @keyframes textAnimation${index} {
+              from {
+                opacity: 0;
+                transform: translateY(50px);
+              }
+              to {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }`}
+          </style>
         </Box>
       ))}
     </Box>
