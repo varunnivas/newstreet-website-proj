@@ -5,7 +5,6 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import LanguageIcon from '@mui/icons-material/Language';
 import { Button, Grid, Typography, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
-import Navbar from '../../Navbar/Navbar'
 import Footer from '../../Footer/footer';
 import ClearIcon from '@mui/icons-material/Clear';
 
@@ -56,7 +55,7 @@ const newsContainer = () => {
 
   const items = [
     {
-      image: "https://newstreettech.com/wp-content/uploads/2023/11/Dhanlaxmi-Bank-Visits-NST-Centre-of-Excellence.jpg",
+      image: "https://newstreettech.com/wp-content/uploads/2024/03/image.jpg",
       title: 'Slider 01',
       date: '02-04-2023',
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, neque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ex.',

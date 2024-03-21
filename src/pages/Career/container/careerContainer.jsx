@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import Navbar from '../../Navbar/Navbar';
 import Footer from '../../Footer/footer';
 import { Grid, Typography, Card, CardMedia, Divider, Button, Avatar } from '@mui/material';
 import './career.css';
