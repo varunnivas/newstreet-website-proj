@@ -21,14 +21,14 @@ const theme = createTheme({
     fontSize: 20,
     fontFamily: "Poppins",
     p: {
-      fontSize: "0.9rem",
+      fontSize: "1.15rem",
       fontFamily: "Poppins",
       lineHeight: 1.5,
       margin: "0 0 1rem",
       color: "Black",
     },
     h1: {
-      fontSize: "2rem",
+      fontSize: "3rem",
       fontWeight: "900",
       color: "#red",
     },
