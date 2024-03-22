@@ -26,12 +26,12 @@ const routes = [
         exact: true,
     },
     {
-        path: '/sidenav', 
+        path: '/admin/sidenav', 
         component:Sidenav,
         exact: true,
     },
     {
-        path:'/home',
+        path:'/admin/home',
         component:HomePage,
         exact:true,
         isPrivate: true, 
@@ -39,22 +39,22 @@ const routes = [
     },
     
     {
-        path:'/news',
+        path:'/admin/news',
         component:News,
         exact:true,
     },
     {
-        path:'/products',
+        path:'/admin/products',
         component:Products,
         exact:true,
     },
     {
-        path:'/contact',
+        path:'/admin/contact',
         component:Contact,
         exact:true,
     },
     {
-        path:'/partner',
+        path:'/admin/partner',
         component:Partners,
         exact:true,
     },
