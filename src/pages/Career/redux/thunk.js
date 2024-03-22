@@ -1,4 +1,4 @@
-import {  fetchJobsSuccess, fetchJobsFailure } from './slice';
+
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchJobs = createAsyncThunk("jobs",

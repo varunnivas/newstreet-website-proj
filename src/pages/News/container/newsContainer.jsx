@@ -89,7 +89,6 @@ const newsContainer = () => {
   return (
     <>
         <header>
-        <Navbar/>
         </header>
         <Grid container justifyContent="center">
         
@@ -114,8 +113,14 @@ const newsContainer = () => {
                 >
                   <img src={item.image} alt={`Slider ${index + 1}`} />
                   <div className='content'>
-                    <Typography style = {{fontFamily : "Arial", fontSize : "1.5rem"}}>{item.date}</Typography>
-                    <Typography variant='p' style = {{fontFamily : "Arial", fontSize : "0.7rem" ,color : 'white'}}>{item.title}</Typography>
+                    <Typography 
+                    style = {{fontFamily : "Arial", fontSize : "1.5rem"}}>
+                      {item.date}
+                    </Typography>
+                    <Typography
+                     variant='p' style = {{fontFamily : "Arial", fontSize : "0.7rem" ,color : 'white'}}>
+                      {item.title}
+                    </Typography>
                   </div>
                 </div>
               ))}

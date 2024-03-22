@@ -52,7 +52,6 @@ const CareerContainer = () => {
 
   return (
     <>
-      <Navbar />
       <Grid container className='container'>
         <Grid item xs={12}>
           <div className='bubble'>
