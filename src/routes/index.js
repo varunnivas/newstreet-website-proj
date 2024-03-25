@@ -2,12 +2,17 @@ import careerContainer from '../pages/Career/container/careerContainer';
 import BasicPage from '../pages/LandingPage/container/BasePage';
 import newsContainer from '../pages/News/container/newsContainer';
 import NoPageFound from '../pages/NoPageFound';
+import Products from '../pages/Products/Products'; 
 
 const routes = [
     {
         path: '/',
         component: BasicPage,
         exact: true,
+    },
+    {
+        path:'/products',
+        component:Products
     },
     {
         path: '*',

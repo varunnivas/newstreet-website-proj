@@ -1,4 +1,6 @@
 import { createTheme } from "@mui/material/styles";
+import "./index.css"
+
 
 const theme = createTheme({
   palette: {
@@ -11,7 +13,7 @@ const theme = createTheme({
       contrastText: "#fff",
     },
     background: {
-      default: "rgb(10, 10, 10)",
+      default: "linear-gradient(to right, hsl(0, 10%, 0%), hsl(0, 60%, 20%))",
     },
     text: {
       primary: "#C02942",
