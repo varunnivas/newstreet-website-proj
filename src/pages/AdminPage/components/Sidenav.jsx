@@ -118,7 +118,7 @@ export default function Sidenav() {
           <ListItemText primary="DashBoard" sx={{ opacity: open ? 1 : 0, color: 'black' }} />
         </ListItemButton>
       </ListItem>
-      <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/admin/products")}}>
+      <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/admin/adminproducts")}}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -138,7 +138,7 @@ export default function Sidenav() {
                 <ListItemText primary="Products" sx={{ opacity: open ? 1 : 0, color: 'black' }} /> {/* Changed text color to black */}
               </ListItemButton>
             </ListItem>
-            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/admin/news")}}>
+            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/admin/adminnews")}}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -158,7 +158,7 @@ export default function Sidenav() {
                 <ListItemText primary="News" sx={{ opacity: open ? 1 : 0, color: 'black' }} /> {/* Changed text color to black */}
               </ListItemButton>
             </ListItem>
-            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/admin/partner")}}>
+            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/admin/adminpartner")}}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -178,7 +178,7 @@ export default function Sidenav() {
                 <ListItemText primary="Partners" sx={{ opacity: open ? 1 : 0, color: 'black' }} /> {/* Changed text color to black */}
               </ListItemButton>
             </ListItem>
-            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/admin/contact")}}>
+            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>{navigate("/admin/admincontact")}}>
               <ListItemButton
                 sx={{
                   minHeight: 48,

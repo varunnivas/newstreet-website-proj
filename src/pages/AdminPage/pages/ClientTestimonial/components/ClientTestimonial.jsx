@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 // import FormComponent from './FormComponent';
 // import axios from 'axios';
 
-const ClientTestimonial = () => {
+const AdminClientTestimonial = () => {
   return (
     <>
       <Box sx={{ display: 'flex' }}>
@@ -17,4 +17,4 @@ const ClientTestimonial = () => {
   );
 };
 
-export default ClientTestimonial;
+export default AdminClientTestimonial;

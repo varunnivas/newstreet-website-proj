@@ -5,7 +5,7 @@ import FormComponent from './FormComponent';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 
-const Partners = () => {
+const AdminPartners = () => {
   const [showForm, setShowForm] = useState(false);
   const [partners, setPartners] = useState([]);
   const [selectedPartner, setSelectedPartner] = useState(null); 
@@ -90,4 +90,4 @@ const Partners = () => {
   );
 };
 
-export default Partners;
+export default AdminPartners;

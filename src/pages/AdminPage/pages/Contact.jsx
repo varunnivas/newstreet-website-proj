@@ -3,7 +3,7 @@ import Sidenav from '../components/Sidenav';
 import Box from '@mui/material/Box';
 import axios from 'axios';
 
-const Contact = () => {
+const AdminContact = () => {
   const [queries, setQueries] = useState([]); // Initialize state for queries
 
   useEffect(() => {
@@ -51,4 +51,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default AdminContact;

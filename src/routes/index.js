@@ -3,11 +3,11 @@ import LoginPage from '../pages/LoginPage/container/LoginPage';
 import NoPageFound from '../pages/NoPageFound';
 import Sidenav from '../pages/AdminPage/components/Sidenav';
 import HomePage from '../pages/AdminPage/pages/Home';
-import News from '../pages/AdminPage/pages/News/components/News'
-import Products from '../pages/AdminPage/pages/Products/components/Products'
-import Contact from '../pages/AdminPage/pages/Contact'
-import Partners from '../pages/AdminPage/pages/Partners/components/Partners';
-import ClientTestimonial from '../pages/AdminPage/pages/ClientTestimonial/components/ClientTestimonial';
+import AdminProducts from '../pages/AdminPage/pages/Products/components/Products'
+import AdminContact from '../pages/AdminPage/pages/Contact'
+import AdminClientTestimonial from '../pages/AdminPage/pages/ClientTestimonial/components/ClientTestimonial';
+import Adminnews from '../pages/AdminPage/pages/News/components/News';
+import AdminPartners from '../pages/AdminPage/pages/Partners/components/Partners';
 
 const routes = [
     {
@@ -39,28 +39,28 @@ const routes = [
     },
     
     {
-        path:'/admin/news',
-        component:News,
+        path:'/admin/adminnews',
+        component:Adminnews,
         exact:true,
     },
     {
-        path:'/admin/products',
-        component:Products,
+        path:'/admin/adminproducts',
+        component:AdminProducts,
         exact:true,
     },
     {
-        path:'/admin/contact',
-        component:Contact,
+        path:'/admin/admincontact',
+        component:AdminContact,
         exact:true,
     },
     {
-        path:'/admin/partner',
-        component:Partners,
+        path:'/admin/adminpartner',
+        component:AdminPartners,
         exact:true,
     },
     {
-        path:'/testimonial',
-        component:ClientTestimonial,
+        path:'/admintestimonial',
+        component:AdminClientTestimonial,
         exact:true,
     },
 

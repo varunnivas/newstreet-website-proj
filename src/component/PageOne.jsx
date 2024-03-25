@@ -4,7 +4,6 @@ export default function PageOne() {
   return (
     <>
       <Button variant="contained" color="secondary">
-        New  Street
       </Button>
     </>
   );

@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { sendFormData, updateProduct } from '../redux/actions';
 
 
-const Products = () => {
+const AdminProducts = () => {
     const [showForm, setShowForm] = useState(false);
     const [products, setProducts] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
@@ -101,4 +101,4 @@ const Products = () => {
     );
 };
 
-export default Products;
+export default AdminProducts;

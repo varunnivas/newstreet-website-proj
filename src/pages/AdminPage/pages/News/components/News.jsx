@@ -4,9 +4,9 @@ import Box from '@mui/material/Box';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import ReusableFormComponent from '../../../components/ReusableFormComponent';
-import { sendFormData,updateNews } from '../redux/actions';
-
-const News = () => {
+import '../../../components/form.css'
+import { sendFormData, updateNews } from '../redux/actions';
+const AdminNews = () => {
   const [showForm, setShowForm] = useState(false);
   const [news, setNews] = useState([]);
   const [editData, setEditData] = useState(null);
@@ -56,7 +56,7 @@ const News = () => {
   const handleUpdate = () => {
     fetchNews(); // Reload products after successful update
     setEditData(null); // Reset selectedProduct after successful update
-};
+  };
 
   return (
     <>
@@ -67,26 +67,26 @@ const News = () => {
           <button onClick={toggleForm}>Add News</button>
           {showForm && <ReusableFormComponent initialValues={editData} onUpdate={handleUpdate} onDeleteSuccess={fetchNews} sendFormData={sendFormData} update={updateNews} />}
           <h2>Existing News</h2>
-          <div style={{ position: 'fixed', top: '10px', right: '10px', zIndex: '999' }}>
+          <div className="table-container">
             {successMessage && (
-              <div style={{ backgroundColor: 'green', color: '#fff', padding: '10px', borderRadius: '5px' }}>
+              <div className="success-message">
                 {successMessage}
               </div>
             )}
           </div>
-          <table style={{ border: '1px solid white', borderCollapse: 'collapse', width: '100%' }}>
+          <table className="news-table">
             <thead>
               <tr>
-                <th style={{ border: '1px solid white', padding: '8px', textAlign: 'center' }}>Title</th>
-                <th style={{ border: '1px solid white', padding: '8px', textAlign: 'center' }}>Actions</th>
+                <th>Title</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
               {news.map((newsItem) => (
                 <tr key={newsItem._id}>
-                  <td style={{ border: '1px solid white', padding: '8px', textAlign: 'center' }}>{newsItem.title}</td>
-                  <td style={{ border: '1px solid white', padding: '8px', textAlign: 'center' }}>
-                    <button onClick={() => handleEdit(newsItem)} style={{ marginRight: '30px' }}>Edit</button>
+                  <td>{newsItem.title}</td>
+                  <td className="news-actions">
+                    <button onClick={() => handleEdit(newsItem)}>Edit</button>
                     <button onClick={() => handleDelete(newsItem._id)}>Delete</button>
                   </td>
                 </tr>
@@ -99,4 +99,4 @@ const News = () => {
   );
 };
 
-export default News;
+export default AdminNews;
