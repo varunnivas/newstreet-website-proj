@@ -4,6 +4,7 @@ import theme from '../../../theme';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 const StyledAppBar = styled(AppBar)(
   ({ theme }) => ({
     background: "black",
@@ -86,8 +87,8 @@ const NavBar = () => {
             <>
               <StyledButton color="inherit" onClick={() => { navigate('/'); handleButtonClick(0); }}>Home</StyledButton>
               <StyledButton color="inherit" onClick={() => { navigate('/products'); handleButtonClick(1); }}>Products</StyledButton>
-              <StyledButton color="inherit" onClick={() => { handleButtonClick(2); }}>News</StyledButton>
-              <StyledButton color="inherit" onClick={() => { handleButtonClick(3); }}>Careers</StyledButton>
+              <StyledButton color="inherit" onClick={() => { navigate('/news');handleButtonClick(2); }}>News</StyledButton>
+              <StyledButton color="inherit" onClick={() => { navigate('/Career'); handleButtonClick(3); }}>Careers</StyledButton>
               <StyledButton color="inherit" onClick={() => { handleButtonClick(4); }}>Contact Us</StyledButton>
             </>
           )}

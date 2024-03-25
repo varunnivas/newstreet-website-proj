@@ -5,7 +5,6 @@
 .bubble {
   width: auto;
   height: auto;
-  /* background: linear-gradient(to left, #000000, rgb(122,31,31)); */
   background-color: #fff;
   position: relative;
   clip-path: polygon(0% 40px, 100% 0%, 100% 100%, 0% 100%);
@@ -27,7 +26,6 @@
 
 .image-container {
   display: flex;
-  top: 90%;
   overflow-x: auto; /* Enable horizontal scrolling */
   width: 100%; /* Ensure full width */
   z-index: 10;

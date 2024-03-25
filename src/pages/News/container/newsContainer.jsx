@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './news.css';
-
+import NavBar from '../../LandingPage/container/Navbar';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import LanguageIcon from '@mui/icons-material/Language';
@@ -88,8 +88,9 @@ const newsContainer = () => {
   
   return (
     <>
-        <header>
-        </header>
+
+          <NavBar/>
+      
         <Grid container justifyContent="center">
         
         <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
@@ -114,7 +115,7 @@ const newsContainer = () => {
                   <img src={item.image} alt={`Slider ${index + 1}`} />
                   <div className='content'>
                     <Typography 
-                    style = {{fontFamily : "Arial", fontSize : "1.5rem"}}>
+                    style = {{fontFamily : "Arial",color : "white", fontWeight : "bold",fontSize : "1rem"}}>
                       {item.date}
                     </Typography>
                     <Typography

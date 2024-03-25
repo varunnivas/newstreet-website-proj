@@ -14,6 +14,7 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import Chip from '@mui/material/Chip';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import {useDispatch, useSelector} from "react-redux";
+import NavBar from '../../LandingPage/container/Navbar';
 
 const useStyles = makeStyles((theme) => ({
   hr: {
@@ -52,12 +53,13 @@ const CareerContainer = () => {
 
   return (
     <>
+      <NavBar/>
       <Grid container className='container'>
         <Grid item xs={12}>
           <div className='bubble'>
-            <center><Typography variant='h1' style = {{color : "red"}}>Become Part of our Team</Typography></center><br />
+            <center><Typography variant='h1' style = {{ fontSize : "2rem" ,color : "red"}}>Become Part of our Team</Typography></center><br />
             <center>
-              <Typography variant='p'>NEW STREET TECH - Your fast track to the future - <br />
+              <Typography variant='p' style = {{fontSize : "0.9rem" ,}}>NEW STREET TECH - Your fast track to the future - <br />
                 Leverages latest technologies to create and operate Hi-tech Ecosystems that will facilitate
                 powerful re-imagination of your Products, Processes & Partnerships.<br />
                 To Deliver Unprecedented & Delightful Customer Experience<br />
@@ -95,36 +97,36 @@ const CareerContainer = () => {
         </Grid>
 
         <Grid item xs={12} className='container-values'>
-          <center><Typography variant='h1'>OUR VALUES</Typography></center><br />
+          <center><Typography variant='h1' style = {{fontSize : "2rem" ,}}>OUR VALUES</Typography></center><br />
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6} md={4}>
-              <Typography variant="h2"><AccessibilityNewIcon />Customer First</Typography>
-              <Typography variant='p' style={{ color: "White" }}>
+              <Typography variant="h2" style = {{fontSize : "1.5rem"}}><AccessibilityNewIcon />Customer First</Typography>
+              <Typography variant='p' style={{fontSize : "0.9rem" , color: "White" }}>
                 We succeed when our customers and users succeed. They're are at the center of everything we do. Our passion for our users translates into their passion for NewStreet.
               </Typography>
             </Grid>
 
             <Grid item xs={12} sm={6} md={4}>
-              <Typography variant="h2"><AccessTimeIcon />Flexible</Typography>
-              <Typography variant='p' style={{ color: "White" }}>
+              <Typography variant="h2" style = {{fontSize : "1.5rem"}}><AccessTimeIcon />Flexible</Typography>
+              <Typography variant='p' style={{ fontSize : "0.9rem" , color: "White" }}>
                 We're a company, with a flexible work- from-anywhere policy. We work in small product oriented teams to focus & execute faster. We don't track working hours, what matters is what you get done.
               </Typography>
             </Grid>
             <Grid item xs={12} sm={6} md={4}>
-              <Typography variant="h2"><VolunteerActivismOutlinedIcon />Empathy at Work</Typography>
-              <Typography variant='p' style={{ color: "White" }}>
+              <Typography variant="h2" style = {{fontSize : "1.5rem"}}><VolunteerActivismOutlinedIcon />Empathy at Work</Typography>
+              <Typography variant='p' style={{fontSize : "0.9rem" , color: "White" }}>
                 Empathy is the ability to place yourself in the shoes of others, to try to understand their thoughts, feelings, and needs, and also know that we don't know it all and need to approach other people with the humility to learn.
               </Typography>
             </Grid>
             <Grid item xs={12} sm={6} md={4}>
-              <Typography variant="h2"><Diversity3OutlinedIcon />Diversity</Typography>
-              <Typography variant='p' style={{ color: "White" }}>
+              <Typography variant="h2" style = {{fontSize : "1.5rem"}}><Diversity3OutlinedIcon />Diversity</Typography>
+              <Typography variant='p' style={{fontSize : "0.9rem" , color: "White" }}>
                 Diverse and inclusive environments are both an advantage and a moral imperative. 40% of our leadership team consists of women, and we are proud to have a diverse group of investors, board members, and advisors.
               </Typography>
             </Grid>
             <Grid item xs={12} sm={6} md={4}>
-              <Typography variant="h2"><GppGoodOutlinedIcon />Trust</Typography>
-              <Typography variant='p' style={{ color: "White" }}>
+              <Typography variant="h2" style = {{fontSize : "1.5rem"}}><GppGoodOutlinedIcon />Trust</Typography>
+              <Typography variant='p' style={{fontSize : "0.9rem" , color: "White" }}>
                 We work together to make collaboration a strength across timezone differences, languages, and cultures. While we're in different places, we all have the same goals, and we trust each other to do the work needed to achieve them.
               </Typography>
             </Grid>
