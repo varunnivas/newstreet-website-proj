@@ -92,7 +92,7 @@ export default function Sidenav() {
     <Button
       variant="contained"
       color="secondary"
-      onClick={() => {navigate("/home")}}
+      onClick={() => {navigate("/admin/home")}}
       style={{backgroundColor:'white'}}
       startIcon={<img src="https://newstreettech.com/wp-content/uploads/2020/07/New-Street-Tech-footer-logo.png" alt="New Street" />} // Replace "path_to_your_image" with the actual path to your image
     ></Button>
