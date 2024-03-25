@@ -5,8 +5,6 @@ import { PersistGate } from "redux-persist/integration/react";
 import { BrowserRouter as Router, Routes } from "react-router-dom";
 import generateRoutes from "./utils/generateRoutes";
 import routes from "./routes/index";
-import PageOne from "./component/PageOne";
-import Footer from "./pages/Footer/footer";
 
 function App() {
   return (
