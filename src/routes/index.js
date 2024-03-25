@@ -1,3 +1,4 @@
+import AboutUsPage from '../pages/AboutUs/AboutUs';
 import BasicPage from '../pages/LandingPage/container/BasePage';
 import LoginPage from '../pages/LoginPage/container/LoginPage';
 import NoPageFound from '../pages/NoPageFound';
@@ -8,6 +9,7 @@ import AdminContact from '../pages/AdminPage/pages/Contact'
 import AdminClientTestimonial from '../pages/AdminPage/pages/ClientTestimonial/components/ClientTestimonial';
 import Adminnews from '../pages/AdminPage/pages/News/components/News';
 import AdminPartners from '../pages/AdminPage/pages/Partners/components/Partners';
+import Products from '../pages/Products/Products'; 
 
 const routes = [
     {
@@ -19,6 +21,10 @@ const routes = [
         path: '/',
         component: BasicPage,
         exact: true,
+    },
+    {
+        path:'/products',
+        component:Products
     },
     {
         path: '*', 
