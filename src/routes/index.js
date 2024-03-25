@@ -1,11 +1,17 @@
+import AboutUsPage from '../pages/AboutUs/AboutUs';
 import BasicPage from '../pages/LandingPage/container/BasePage';
 import NoPageFound from '../pages/NoPageFound';
+import Products from '../pages/Products/Products'; 
 
 const routes = [
     {
         path: '/',
         component: BasicPage,
         exact: true,
+    },
+    {
+        path:'/products',
+        component:Products
     },
     {
         path: '*',
