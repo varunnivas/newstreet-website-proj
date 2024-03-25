@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 import Video from "./BgVideo";
 import DescriptionCard from "./Description";
 import NumberRow from "./StatisticsHome";
-import ImageFromAPI from "./Partners";
+import ImageFromAPI from "./partners";
 import AboutUsPage from "../../AboutUs/AboutUs";
 import ContactUsButton from "../ContactButton";
 
