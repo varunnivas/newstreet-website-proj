@@ -1,5 +1,6 @@
-import AboutUsPage from '../pages/AboutUs/AboutUs';
+import careerContainer from '../pages/Career/container/careerContainer';
 import BasicPage from '../pages/LandingPage/container/BasePage';
+import newsContainer from '../pages/News/container/newsContainer';
 import LoginPage from '../pages/LoginPage/container/LoginPage';
 import NoPageFound from '../pages/NoPageFound';
 import Sidenav from '../pages/AdminPage/components/Sidenav';
@@ -68,6 +69,16 @@ const routes = [
         path:'/admintestimonial',
         component:AdminClientTestimonial,
         exact:true,
+    },
+    {
+        path: '/news',
+        component: newsContainer,
+        exact: true,
+    },
+    {
+        path: '/career',
+        component: careerContainer,
+        exact: true,
     },
 
 ];

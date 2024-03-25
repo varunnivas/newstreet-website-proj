@@ -1,6 +1,7 @@
 import  { useState, useEffect } from 'react';
 import { Box } from '@mui/material';
 import './app.css';
+import Footer from '../../Footer/footer';
 
 const ImageFromAPI = ({ imageUrls }) => {
   const [images, setImages] = useState([]);
@@ -45,6 +46,7 @@ const ImageFromAPI = ({ imageUrls }) => {
         ))}
       </Box>
     </Box>
+    
   );
 };
 

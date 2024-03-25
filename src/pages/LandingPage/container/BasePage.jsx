@@ -6,6 +6,7 @@ import NumberRow from "./StatisticsHome";
 import ImageFromAPI from "./partners";
 import AboutUsPage from "../../AboutUs/AboutUs";
 import ContactUsButton from "../ContactButton";
+import Footer from "../../Footer/footer";
 
 const BasicPage = () => {
     
@@ -24,6 +25,7 @@ const BasicPage = () => {
         ]}
       />
             <AboutUsPage/>
+            <Footer/>
         </div>
     );
 };
