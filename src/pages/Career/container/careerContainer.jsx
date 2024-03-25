@@ -9,14 +9,14 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import VolunteerActivismOutlinedIcon from '@mui/icons-material/VolunteerActivismOutlined';
 import Diversity3OutlinedIcon from '@mui/icons-material/Diversity3Outlined';
 import GppGoodOutlinedIcon from '@mui/icons-material/GppGoodOutlined';
-import { makeStyles } from "@material-ui/core/styles";
+import { styled } from '@mui/system';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import Chip from '@mui/material/Chip';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import {useDispatch, useSelector} from "react-redux";
 import NavBar from '../../LandingPage/container/Navbar';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = styled((theme) => ({
   hr: {
     backgroundColor: "grey",
     height: "1px",
