@@ -1,4 +1,3 @@
-import AboutUsPage from '../pages/AboutUs/AboutUs';
 import BasicPage from '../pages/LandingPage/container/BasePage';
 import NoPageFound from '../pages/NoPageFound';
 import Products from '../pages/Products/Products'; 
